@@ -15,10 +15,10 @@
 // import ConfirmationNumberIcon from '@material-ui/icons/ConfirmationNumber';
 // import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 // import Box from '@material-ui/core/Box';
-
+import {CommentList} from './CommentList.jsx'
 
 export function PostPreview({ post }) {
-    console.log(post);
+ 
     // const { title, comments, likes } = post
     // var total = {
     //     likes: [],
@@ -40,7 +40,7 @@ export function PostPreview({ post }) {
     //     }
     return (
         <section>
-            <div className={'PostPreview'}>
+            <div className={'post-preview'}>
                 <h1>post preview</h1>
                 <div className="post-header">
                     <div>
@@ -52,7 +52,7 @@ export function PostPreview({ post }) {
                 <div className="post-img">
                     <img src={post.imgUrl}></img>
                 </div>
-                {/* <CommentsList /> */}
+                <CommentList comments = {post.comments} />
             </div>
         </section>
     );

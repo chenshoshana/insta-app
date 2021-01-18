@@ -17,7 +17,7 @@ export function loadUsers(filterBy) {
 // }
 
 export function removeUser(userId) {
-    console.log('actions', userId);
+    
     return (dispatch) => {
         userService.removeUser(userId).then(() => { dispatch({ type: 'REMOVE_TOY', userId }) })
     }
@@ -29,7 +29,7 @@ export function editUser(user) {
     }
 }
 export function addUser(user) {
-    console.log(user, 'actions');
+    
     return (dispatch) => {
         userService.addUser(user).then((savedUser) => { dispatch({ type: 'ADD_TOY', user: savedUser }) })
     }

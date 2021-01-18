@@ -1,9 +1,9 @@
 import { PostPreview } from "../cmps/PostPreview.jsx"
 
 export function PostList({ posts }) {
-    console.log('posts-postlist ', posts);
+    
     return (
-        <div className="PostList">
+        <div className="post-List">
             {posts.map(post => {
                 return <PostPreview key={post._id} post={post} />
             })}

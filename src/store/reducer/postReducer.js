@@ -10,7 +10,7 @@ const initialState = {
 export function postReducer(state = initialState, action) {
     switch (action.type) {
         case 'SET_POSTS':
-            console.log('set post-post reducer',action.posts);
+          
             return { ...state, posts: action.posts }
         case 'EDIT_POST':
             const editedevPosts = state.posts.map(post => {

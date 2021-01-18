@@ -12,7 +12,7 @@ class _InstaApp extends Component {
 
     componentDidMount() {
         this.props.loadPosts(this.props.filterBy)
-        console.log('Got from store:', this.props);
+        
     }
 
     // onRemove = (eventiId) => {

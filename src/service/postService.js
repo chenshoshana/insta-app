@@ -13,7 +13,7 @@ export const postService = {
 
 function query() {
     var posts = StorageService.load('posts')
-    console.log('posts srvcies',posts);
+   
     if (!posts) {
         StorageService.save('posts', gPosts)
         return Promise.resolve(gPosts)
@@ -40,8 +40,7 @@ function getById(postId) {
 
 function savePost(post) {
     var gPosts = StorageService.load('posts')
-    console.log(gPosts);
-    console.log(post);
+
     if (post._id) {
         const idx = gPosts.findIndex(currPost => currPost._id === post._id)
         gPosts[idx] = post;

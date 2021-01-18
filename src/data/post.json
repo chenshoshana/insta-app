@@ -21,11 +21,21 @@
         ],
         "comments": [
             {
-                "id": "dsfda3243",
-                "txt": "Very helpful hosts. Cooked traditional...",
+                "_id": "dsfda3243",
+                "txt": "Dude you look great!",
                 "createdAt": 1519211809934,
+                "likes": [
+                    {
+                        "id": "makeId",
+                        "byUser": {
+                            "_id": "u102",
+                            "username": "moshe shart",
+                            "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStktAVwIe6xnl3UVjsNhPVdhKr6ZZRC50hGQ&usqp=CAU"
+                        }
+                    }
+                ],
                 "byUser": {
-                    "_id": "u102",
+                    "id": "u102",
                     "username": "Sara Connor",
                     "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStktAVwIe6xnl3UVjsNhPVdhKr6ZZRC50hGQ&usqp=CAU"
                 }

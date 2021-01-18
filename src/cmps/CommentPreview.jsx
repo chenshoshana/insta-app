@@ -1,20 +1,3 @@
-// import React from 'react';
-// import { Link } from 'react-router-dom'
-// import Avatar from '@material-ui/core/Avatar';
-// import Card from '@material-ui/core/Card';
-// import CardMedia from '@material-ui/core/CardMedia';
-// import CardContent from '@material-ui/core/CardContent';
-// import Divider from '@material-ui/core/Divider';
-// import Typography from '@material-ui/core/Typography';
-// import StarIcon from '@material-ui/icons/Star';
-// import CalendarTodayIcon from '@material-ui/icons/CalendarToday'
-// // import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-// import IconButton from '@material-ui/core/IconButton';
-// import FavoriteBorderRounded from '@material-ui/icons/FavoriteBorderRounded';
-// import Share from '@material-ui/icons/Share';
-// import ConfirmationNumberIcon from '@material-ui/icons/ConfirmationNumber';
-// import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
-// import Box from '@material-ui/core/Box';
 
 
 export function CommentPreview({ comment }) {

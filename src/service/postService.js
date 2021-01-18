@@ -13,6 +13,7 @@ export const postService = {
 
 function query() {
     var posts = StorageService.load('posts')
+    console.log('posts srvcies',posts);
     if (!posts) {
         StorageService.save('posts', gPosts)
         return Promise.resolve(gPosts)

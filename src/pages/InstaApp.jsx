@@ -5,10 +5,14 @@ import { loadPosts } from '../store/action/postActions.js'
 
 class _InstaApp extends Component {
 
+    // componentDidMount() {
+    //     const some = loadPosts(this.props.filterBy)
+    //     console.log('this',some);
+    // }
+
     componentDidMount() {
-        const posts = loadPosts(this.props.filterBy)
+        this.props.loadPosts(this.props.filterBy)
         console.log('Got from store:', this.props);
-        return posts
     }
 
     // onRemove = (eventiId) => {
@@ -29,6 +33,7 @@ class _InstaApp extends Component {
 
     render() {
         const { posts } = this.props
+
         return (
             <section>
                 <h1>InstaApp</h1>

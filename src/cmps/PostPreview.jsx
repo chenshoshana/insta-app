@@ -18,6 +18,7 @@
 
 
 export function PostPreview({ post }) {
+    console.log(post);
     // const { title, comments, likes } = post
     // var total = {
     //     likes: [],
@@ -40,6 +41,7 @@ export function PostPreview({ post }) {
     return (
         <section>
             <div className={'PostPreview'}>
+                <h1>post preview</h1>
                 <div className="post-header">
                     <div>
                         <p>{post.user.username}</p>

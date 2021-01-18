@@ -3,10 +3,12 @@ import { postService } from "../../service/postService.js"
 export function loadPosts(filterBy) {
     return (dispatch) => {
         postService.query(filterBy).then(posts => { dispatch({ type: 'SET_POSTS', posts: posts }) })
+        
     }
 }
 
 // export function getById(postId) {
+    
 //     return postService.getById(postId)
 // }
 // export function getById(postId) {
@@ -17,7 +19,6 @@ export function loadPosts(filterBy) {
 // }
 
 export function removePost(postId) {
-    console.log('actions', postId);
     return (dispatch) => {
         postService.removePost(postId).then(() => { dispatch({ type: 'REMOVE_POST', postId: postId }) })
     }

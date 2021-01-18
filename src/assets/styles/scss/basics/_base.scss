@@ -1,0 +1,58 @@
+//prew settings- available to change
+* {
+    box-sizing: border-box;
+}
+#root {
+    height: 100vh;
+}
+::selection {
+    background-color: $clr1;
+    color: $clr6;
+}
+
+html {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    line-height: 1.6;
+    color: $clr2;
+    height: 100vh;
+}
+
+body {
+    font-size: rem(18px);
+    margin: 0 auto;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-family: caveat;
+    margin: 10px 0 0.6em;
+    line-height: 1;
+    text-align: center;
+}
+
+// main,
+// footer {
+//     padding: 5px;
+// }
+
+img {
+    width: 100%;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.main-layout {
+    max-width: 1500px;
+    margin: 0 auto;
+}

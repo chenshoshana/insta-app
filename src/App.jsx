@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Switch, Route } from 'react-router-dom'
-// import { AppHeader } from './cmps/AppHeader.jsx'
+import { AppHeader } from './cmps/AppHeader.jsx'
 import { InstaApp } from './pages/InstaApp.jsx'
 // import { About } from './pages/About.jsx'
 // import Login from './pages/Login.jsx'
@@ -11,14 +11,14 @@ import { InstaApp } from './pages/InstaApp.jsx'
 // import { PostDetails } from './pages/PostDetails.jsx'
 // import { PostEdit } from './pages/PostEdit.jsx'
 // import { AppFooter } from './cmps/AppFooter.jsx'
-// import './assets/scss/main.scss';
+import './assets/styles/scss/main.scss'
 
 
 
 export class App extends Component {
     render() {
         return (<React.Fragment>
-            {/* <AppHeader /> */}
+            <AppHeader />
             <Switch>
                 {/* <Route component={PostEdit} path="/edit/:postId?" /> */}
                 {/* <Route component={PostDetails} path="/post/:postId" /> */}

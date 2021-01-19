@@ -1,4 +1,4 @@
-import React from 'react';
+import {React,Component} from 'react';
 import clsx from 'clsx';
 import Card from '@material-ui/core/Card';
 import CardHeader from '@material-ui/core/CardHeader';
@@ -16,12 +16,13 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { CommentList } from './CommentList.jsx'
 import { UtilService } from '../service/utilService.js'
+import { removePost } from '../store/action/postActions.js'
 import Button from '@material-ui/core/Button';
+import { connect } from 'react-redux'
 
 
-export function PostPreview({ post }) {
+class _PostPreview extends Component {
 
-    // const { comments, likes } = post
     // var total = {
     //     likes: [],
     //     comments: []
@@ -40,59 +41,75 @@ export function PostPreview({ post }) {
     //             total.comments += comment.rate;
     //         })
     //     }
-    return (
 
-        <Card className={"root"}>
-            <CardHeader
-                avatar={
-                    <Avatar aria-label="recipe" className={"avatar"}>
-                        <img src={post.user.imgUrl} />
-                    </Avatar>
-                }
-                action={
-                    <IconButton aria-label="settings">
-                        <MoreVertIcon />
+    render() {
+        const { post } = this.props
+        return (
+
+            <Card className={"root"}>
+                <CardHeader
+                    avatar={
+                        <Avatar aria-label="recipe" className={"avatar"}>
+                            <img src={post.user.imgUrl} />
+                        </Avatar>
+                    }
+                    action={
+                        <IconButton aria-label="settings" onClick={() => this.props.removePost(post._id)}>
+                            <MoreVertIcon />
+                        </IconButton>
+                    }
+                    title={post.user.username}
+                    subheader={post.title}
+                />
+                <Button color="primary">follow</Button>
+                <div>
+                    <img src={post.imgUrl} />
+                </div>
+                <CardMedia
+                    className={"media"}
+                    image={post.title}
+                    title="Paella dish"
+                />
+
+                <CardActions disableSpacing>
+                    <IconButton aria-label="add to favorites">
+                        <FavoriteIcon />
                     </IconButton>
-                }
-                title={post.user.username}
-                subheader={post.title}
-            />
-           <Button color="primary">follow</Button>
-            <div>
-                <img src={post.imgUrl} />
-            </div>
-            <CardMedia
-                className={"media"}
-                image={post.title}
-                title="Paella dish"
-            />
-
-            <CardActions disableSpacing>
-                <IconButton aria-label="add to favorites">
-                    <FavoriteIcon />
-                </IconButton>
-                <IconButton aria-label="share">
-                    <ShareIcon />
-                </IconButton>
-                {/* <IconButton
-                    className={clsx(expand, {
-                        [expandOpen]: expanded,
-                    })}
-                    onClick={handleExpandClick}
-                    aria-expanded={expanded}
-                    aria-label="show more"
-                >
-                    <ExpandMoreIcon />
-                </IconButton> */}
-            </CardActions>
-            {/* <Collapse in={expanded} timeout="auto" unmountOnExit> */}
-            <CommentList comments={post.comments} />
-            {/* </Collapse> */}
-            <Button>add comment</Button>
-        </Card>
-    )
+                    <IconButton aria-label="share">
+                        <ShareIcon />
+                    </IconButton>
+                    {/* <IconButton
+                        className={clsx(expand, {
+                            [expandOpen]: expanded,
+                        })}
+                        onClick={handleExpandClick}
+                        aria-expanded={expanded}
+                        aria-label="show more"
+                    >
+                        <ExpandMoreIcon />
+                    </IconButton> */}
+                </CardActions>
+                {/* <Collapse in={expanded} timeout="auto" unmountOnExit> */}
+                <CommentList comments={post.comments} />
+                {/* </Collapse> */}
+                <Button>add comment</Button>
+            </Card>
+        )
+    }
+}
+const mapStateToProps = state => {
+    return {
+        posts: state.postModule.posts
+    }
 }
 
+const mapDispatchToProps = {
+    removePost
+}
+
+
+
+export const PostPreview = connect(mapStateToProps, mapDispatchToProps)(_PostPreview);
 
 
 

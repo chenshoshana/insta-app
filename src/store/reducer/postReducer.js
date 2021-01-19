@@ -48,6 +48,5 @@ export function postReducer(state = initialState, action) {
         default:
             return state
     }
-
 }
 

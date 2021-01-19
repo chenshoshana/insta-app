@@ -1,7 +1,7 @@
 import { Component } from 'react'
 import { connect } from 'react-redux'
 import { PostList } from './PostList.jsx'
-import { loadPosts } from '../store/action/postActions.js'
+import { loadPosts, removePost } from '../store/action/postActions.js'
 import { AddPost } from '../cmps/AddPost.jsx'
 import { AppFooter } from '../cmps/AppFooter.jsx'
 
@@ -35,11 +35,16 @@ class _InstaApp extends Component {
         this.props.loadPosts(this.props.filterBy)
 
     }
+    // onRemovePost = (postId) => {
+    //     console.log(this.state.post);
+    //     this.props.removePost(postId)
+    //     this.props.printMsg('Post was removed')
+    //     setTimeout(() => {
+    //         this.props.printMsg('')
+    //     }, 2000)
+    //     this.props.history.push('/post')
 
-    // onRemove = (eventiId) => {
-    //     this.props.removeEventi(eventiId)
 
-    // }
 
     // onSetFilter = (filterBy) => {
     //     this.props.setFilter(filterBy)
@@ -74,7 +79,8 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-    loadPosts
+    loadPosts,
+    removePost
 }
 
 

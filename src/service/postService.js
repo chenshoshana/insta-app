@@ -6,14 +6,14 @@ var gPosts = require('../data/post.json')
 export const postService = {
     query,
     getById,
-    savePost
-    // remove
+    savePost,
+    remove
 }
 
 
 function query() {
     var posts = StorageService.load('posts')
-   
+
     if (!posts) {
         StorageService.save('posts', gPosts)
         return Promise.resolve(gPosts)
@@ -27,16 +27,19 @@ function getById(postId) {
     else return Promise.reject('No post')
 }
 
-// function remove(eventiId) {
-//     const idx = gEventis.findIndex(eventi => eventi._id === eventiId)
-//     if (idx >= 0) {
-//         gEventis.splice(idx, 1)
-//         _saveEventisToFile()
-//         return Promise.resolve()
-//     }
-//     else return Promise.reject('No eventi')
+function remove(postId) {
+    var posts = gPosts
+    const idx = posts.findIndex(post => post._id === postId)
 
-// }
+    if (idx >= 0) {
+        posts.splice(idx, 1)
+        StorageService.save('posts', posts)
+        return Promise.resolve()
+    } else return Promise.reject('No post')
+}
+
+
+
 
 function savePost(post) {
     var gPosts = StorageService.load('posts')

@@ -46,7 +46,7 @@ class _InstaApp extends Component {
         const { posts } = this.props
 
         return (
-            <section>
+            <section className="app-body">
                 <PostList posts={posts} />
                 {/* {this.state.isNewPost && <AddPost toggleAddPost={this.onToggleAddPost} />} */}
             </section>

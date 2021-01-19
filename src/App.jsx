@@ -10,7 +10,7 @@ import { InstaApp } from './pages/InstaApp.jsx'
 // import { PostsList } from './pages/PostsList.jsx'
 // import { PostDetails } from './pages/PostDetails.jsx'
 // import { PostEdit } from './pages/PostEdit.jsx'
-// import { AppFooter } from './cmps/AppFooter.jsx'
+import { AppFooter } from './cmps/AppFooter.jsx'
 import './assets/styles/scss/main.scss'
 
 
@@ -30,7 +30,7 @@ export class App extends Component {
                 {/* <Route component={Login} path="/login" /> */}
                 <Route component={InstaApp} path="/" />
             </Switch>
-            {/* <AppFooter /> */}
+            <AppFooter />
         </React.Fragment>
         )
     }

@@ -1,3 +1,37 @@
-h1 {
-    color: red;
+.main-footer {
+    background-color: $clr5;
+    position: fixed;
+    bottom: 0;
+    min-width: rem(1350px);
+    height: 55px;
+
+    .footer-logo {
+        font-size: rem(34px);
+        letter-spacing: 0.8px;
+        font-family: cookie, sans-serif;
+        color: $clr1;
+        margin-inline-start: 20px;
+    }
+
+    .footer-logo :hover {
+        text-decoration: none;
+    }
+
+    .footer-list {
+        // margin-inline-end: 15px;
+        color: $clr1;
+       margin-top: 10px;
+
+        li :last-child {
+            margin-inline-end: 5px;
+        }
+
+        a {
+            font-weight: 700px;
+        }
+    }
+
+    .footer-list :hover {
+        text-decoration: none;
+    }
 }

@@ -1,7 +1,36 @@
 .main-header {
-    background-color: $clr2;
-    justify-content: space-between;
+    background-color: $clr5;
+    position: fixed;
+    top: 0;
+    min-width: rem(1350px);
+    // justify-content: space-between;
 
+    .header-logo {
+        font-size: rem(34px);
+        letter-spacing: 0.8px;
+        font-family: cookie, sans-serif;
+        color: $clr1;
+        margin-inline-start: 20px;
+    }
+
+    .header-logo :hover {
+        text-decoration: none;
+    }
+
+    .header-list {
+        margin-inline-end: 15px;
+
+        li :last-child {
+            margin-inline-end: 5px;
+        }
+
+        a {
+            color: $clr6;
+            font-weight: 700px;
+        }
+    }
     
-
+    .header-list :hover {
+        text-decoration: none;
+    }
 }

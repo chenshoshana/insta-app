@@ -3,27 +3,40 @@ import { Link } from 'react-router-dom'
 
 export function AppHeader() {
 
+    // return (
+    //     <section className="main-header">
+    //         <ul className="header-list flex clean-list">
+    //             <li><Link to="/about">📝</Link></li>
+    //             <li><Link to="/favorites">🤍</Link></li>
+    //             {/* <li><Link to="/map">Map</Link></li> */}
+    //             {/* <p><Link to="/">InstaApp</Link></p> */}
+    //         </ul>
+    //         <div className="header-logo"><Link to="/InstaApp">InstaApp</Link></div>
+    //     </section >
+    // )
+
     return (
         <section className="main-header">
             <header className="main-layout">
                 <div className=" flex align-center space-between">
                     <div className="header-left flex align-center">
-                    <div className="header-logo">
-                <Link to="/">InstaApp</Link>
-                </div>
-                {/* <Link to="/login" className="login-btn">Login</Link>
-                <Link to="/signup" className="signup-btn">Signup</Link> */}
-                </div>
-            <nav>
-                <ul className="header-list flex justify-center clean-list">
-                    <li><Link to="/about">📝</Link></li>
-                    <li><Link to="/favorites">🤍</Link></li>
-                    {/* <li><Link to="/map">Map</Link></li> */}
-                </ul>
-            </nav>
+                        <div className="header-logo">
+                            <Link to="/">InstaApp</Link>
+                        </div>
+                        {/* <Link to="/login" className="login-btn">Login</Link> */}
+                        {/* <Link to="/signup" className="signup-btn">Signup</Link> */}
+                        {/* <button className="login-btn">Login</button> */}
+                        {/* <button className="signup-btn">Signup</button> */}
+                    </div>
+                    <ul className="header-list flex justify-center clean-list">
+                        <li><Link to="/chat">📝</Link></li>
+                        <li><Link to="/favorites">🤍</Link></li>
+                        {/* <li><Link to="/eventi">Map</Link></li> */}
+                    </ul>
+
                 </div>
             </header >
-        {/* <h3>Welcome <Link to="/profile">{loggedInUser.username}</Link></h3> */}
+            {/* <h3>Welcome <Link to="/profile">{loggedInUser.username}</Link></h3> */}
         </section >
     )
 }

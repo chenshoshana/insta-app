@@ -1,7 +1,9 @@
 import { postService } from "../../service/postService.js"
 
+
 export function loadPosts(filterBy) {
     return (dispatch) => {
+        console.log(dispatch);
         postService.query(filterBy).then(posts => { dispatch({ type: 'SET_POSTS', posts: posts }) })
         
     }
@@ -20,10 +22,22 @@ export function loadPosts(filterBy) {
 
 export function removePost(postId) {
     return (dispatch) => {
-        postService.removePost(postId).then(() => { dispatch({ type: 'REMOVE_POST', postId: postId }) })
+        console.log(dispatch);
+        postService.remove(postId).then(() => { dispatch({ type: 'REMOVE_POST', postId: postId }) })
     }
 }
-
+// export function removePost(postId) {
+//     return (dispatch) => {
+//         return postService.remove(postId)
+//         .then(post => {
+//             const action = {
+//                 type: 'REMOVE_POST',
+//                 postId
+//             }
+//             dispatch(action)
+//         })
+//     }
+// }
 export function editPost(post) {
     return (dispatch) => {
         postService.savePost(post)

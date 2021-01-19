@@ -34,7 +34,7 @@ export function editPost(post) {
             })
     }
 }
-export function addpost(post) {
+export function addPost(post) {
     console.log(post, 'actions');
     return (dispatch) => {
         postService.savepost(post).then((savedPost) => { dispatch({ type: 'ADD_POST', post: savedPost }) })

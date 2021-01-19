@@ -1,3 +1,11 @@
 .app-body{
-    margin-top: 40px;
+    margin-top: 45px;
+
+    .add-post-btn{
+        position: fixed;
+        bottom: 15px;
+        right: 15px;
+        width: rem(38px);
+        height: rem(36px);
+    }
 }

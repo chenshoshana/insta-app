@@ -1,3 +1,65 @@
-.root {
-    max-width: rem(345px);
+// .root {
+//     max-width: rem(345px);
+// }
+
+.screen {
+    background-color: rgba(0, 0, 0, 0.671);
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    z-index: 9999;
+
+    .modal {
+        font-size: 13px;
+        width: 600px;
+        // height: 400px;
+        border-radius: 3px;
+        background-color: white;
+        margin: 0 auto;
+        // position: fixed;
+        // margin-inline-start: 150px;
+        // display: flex;
+        // justify-content: center;
+        // align-items: center;
+        // top: 150px;
+    }
+    h4 {
+        padding: rem(16px);
+        font-weight: bold;
+    }
+
+    .add-post-modal-textarea {
+        padding: rem(16px);
+        border-top: 1px solid #dbdbdb;
+        border-bottom: 1px solid #dbdbdb;
+        display: block;
+    }
+    textarea {
+        width: 100%;
+        border: 0;
+        resize: none;
+        color: #8e8e8e;
+        background: transparent;
+        outline: 0;
+        font-family: inherit;
+        font-size: inherit;
+    }
+
+    .add-post-modal-close-btn {
+        position: absolute;
+        // top: 0;
+        width: 27px;
+        margin-inline-start: 570px;
+        margin-top: auto;
+    }
+    .add-post-modal-btn {
+        position: absolute;
+        width: 50px;
+        margin-inline-start: 550px;
+        margin-bottom: auto;
+    }
 }

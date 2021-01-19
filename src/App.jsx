@@ -32,7 +32,7 @@ export class App extends Component {
                 {/* <Route component={Login} path="/login" /> */}
                 <Route component={InstaApp} path="/" />
             </Switch>
-            <AppFooter />
+            {/* <AppFooter /> */}
         </React.Fragment>
         )
     }

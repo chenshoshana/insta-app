@@ -77,19 +77,21 @@ export class AddPost extends Component {
     // }
 
     render() {
+        console.log('enter render addPost');
         return (
-            <div className="modal">
-                <form className="add-post-modal">
-                    <button className="add-post-modal-close-btn" onClick={this.props.toggleAddPost}>X</button>
-                    <h4>Add Post</h4>
-                    <textarea rows="1" placeholder="Write here" className="add-post-modal-textarea" onChange={this.onInputChange}></textarea>
-                    <label htmlFor="imgUploader" className="add-post-modal-img-up">🖼</label>
-                    <input type="file" id="imgUploader" name="img-uploader" />
-                    <button type="submit" className="add-post-modal-btn" onClick={this.onSavePost}>Post</button>
-                </form>
+            <div className="screen">
+                <div className="modal">
+                    <form className="add-post-modal">
+                        <button className="add-post-modal-close-btn" onClick={this.props.addPostFalse}>X</button>
+                        <h4>New Post</h4>
+                        <textarea rows="1" placeholder="Write here" className="add-post-modal-textarea" onChange={this.onInputChange}></textarea>
+                        <label htmlFor="imgUploader" className="add-post-modal-img-up">🖼</label>
+                        <input type="file" id="imgUploader" name="img-uploader" />
+                        <button type="submit" className="add-post-modal-btn" onClick={this.onSavePost}>Post</button>
+                    </form>
 
-                {/* <form onSubmit={}> */}
-                {/* <table className="modal-tbl">
+                    {/* <form onSubmit={}> */}
+                    {/* <table className="modal-tbl">
                     <tbody>
                         <tr>
                             <td><label htmlFor="epost">To:</label></td>
@@ -115,7 +117,8 @@ export class AddPost extends Component {
                 </table>
                 <textarea name="body" form="usrform" onChange={this.onInputChange}></textarea><br />
                 <button type="submit" className="send-btn" onClick={this.onAddPostToView}>Send</button> */}
-                {/* </form> */}
+                    {/* </form> */}
+                </div>
             </div>
         );
 

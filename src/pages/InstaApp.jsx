@@ -7,9 +7,19 @@ import { AppFooter } from '../cmps/AppFooter.jsx'
 
 class _InstaApp extends Component {
 
-    // state = {
-    //     isNewPost: false
-    // }
+    state = {
+        isNewPost: false
+    }
+
+    onAddPostTrue = () => {
+        console.log('is post true- before', this.state);
+        if (!this.state.isNewPost) this.setState({ isNewPost: true })
+    }
+
+    onAddPostFalse = () => {
+        console.log('is post false- before', this.state);
+        if (this.state.isNewPost) this.setState({ isNewPost: false })
+    }
 
     // onToggleAddPost = () => {
     //     if (this.state.isNewPost) this.setState({ isNewPost: false })
@@ -23,7 +33,7 @@ class _InstaApp extends Component {
 
     componentDidMount() {
         this.props.loadPosts(this.props.filterBy)
-        
+
     }
 
     // onRemove = (eventiId) => {
@@ -44,11 +54,14 @@ class _InstaApp extends Component {
 
     render() {
         const { posts } = this.props
-
+        console.log('enter render')
         return (
             <section className="app-body">
                 <PostList posts={posts} />
-                {/* {this.state.isNewPost && <AddPost toggleAddPost={this.onToggleAddPost} />} */}
+                <div>
+                    <button className="add-post-btn" onClick={this.onAddPostTrue}>➕</button>
+                </div>
+                {this.state.isNewPost && <AddPost addPostFalse={this.onAddPostFalse} />}
             </section>
         )
     }

@@ -1,5 +1,7 @@
 .main-header {
-    background-color: $clr5;
+    background-color: white;
+    border-bottom: 1px solid #dbdbdb;
+    // border-bottom: groove;
     position: fixed;
     top: 0;
     min-width: rem(1350px);

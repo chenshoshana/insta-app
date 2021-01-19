@@ -7,6 +7,7 @@ import { InstaApp } from './pages/InstaApp.jsx'
 // import { Signup } from './pages/Signup.jsx'
 // import { UserDetails } from './pages/UserDetails.jsx'
 // import { ChatApp } from './cmps/ChatApp.jsx'
+import { CommentEdit } from './cmps/CommentEdit.jsx'
 // import { PostsList } from './pages/PostsList.jsx'
 // import { PostDetails } from './pages/PostDetails.jsx'
 // import { PostEdit } from './pages/PostEdit.jsx'
@@ -20,8 +21,9 @@ export class App extends Component {
         return (<React.Fragment>
             <AppHeader />
             <Switch>
-                {/* <Route component={PostEdit} path="/edit/:postId?" /> */}
-                {/* <Route component={PostDetails} path="/post/:postId" /> */}
+                <Route component={CommentEdit} path="/comment/edit" />
+                {/* <Route component={PostEdit} path="/edit/:postId?" / */}
+                {/* <Route component={PostDetails} path="/post/:postId" />  */}
                 {/* <Route component={ChatApp} path="/chat" /> */}
                 {/* <Route component={Admin} path="/admin/userId:" /> */}
                 {/* <Route component={UserDetails} path="/user/userId:" /> */}

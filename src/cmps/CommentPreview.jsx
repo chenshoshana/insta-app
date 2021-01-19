@@ -1,44 +1,31 @@
+import React from 'react';
+import { makeStyles } from '@material-ui/core/styles';
+import List from '@material-ui/core/List';
+import ListItem from '@material-ui/core/ListItem';
+import ListItemText from '@material-ui/core/ListItemText';
+import CardHeader from '@material-ui/core/CardHeader';
+import ListItemAvatar from '@material-ui/core/ListItemAvatar';
+import Avatar from '@material-ui/core/Avatar';
+import ImageIcon from '@material-ui/icons/Image';
+import WorkIcon from '@material-ui/icons/Work';
+import BeachAccessIcon from '@material-ui/icons/BeachAccess';
+import { UtilService } from '../service/utilService.js';
 
 
 export function CommentPreview({ comment }) {
 
-    // const { title, comments, likes } = post
-    // var total = {
-    //     likes: [],
-    //     comments: []
-    // }
-    // if (!total.comments || !total.comments.length) {
-    //     total.comments = []
-
-    // } else if (!total.likes || !total.likes.length) {
-    //     total.likes = []
-    // } else {
-    //     total.comments = comments
-    //     total.likes = likes
-    //     const commentsCount = comments.forEach(comment => {
-    //         total.comments += comment;
-    //         const likeRating = comments.forEach(comment => {
-    //             total.comments += comment.rate;
-    //         })
-    //     }
     return (
-        <section>
-            <div className="comment-preview">
-                <img className="user-img" src={comment.byUser.imgUrl}></img>
-                <div>
-                    <div className="comment-details">
-                        <p>{comment.byUser.username}</p>
-                        <p>{comment.txt}</p>
-                    </div>
-                    <div>
-                        <p>{comment.createdAt}*weeks ago*</p>
-                        <p>likes:{comment.likes.length}</p>
-
-                    </div>
-
-                </div>
-            </div>
-        </section>
+        <List className={"root"}>
+            <ListItem>
+                <ListItemAvatar>
+                    <Avatar aria-label="recipe" className={"avatar"}>
+                        <img src={comment.byUser.imgUrl} />
+                    </Avatar>
+                </ListItemAvatar>
+                <ListItemText primary={comment.byUser.username} secondary={comment.txt} />
+                <CardHeader subheader = {UtilService.timeDifference(Date.now(), comment.createdAt)}/>
+            </ListItem>
+        </List>
     );
 }
 

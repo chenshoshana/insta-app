@@ -16,10 +16,11 @@ import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { CommentList } from './CommentList.jsx'
+import { UtilService } from '../service/utilService.js'
 
 export function PostPreview({ post }) {
 
-    // const { title, comments, likes } = post
+    // const { comments, likes } = post
     // var total = {
     //     likes: [],
     //     comments: []
@@ -39,50 +40,57 @@ export function PostPreview({ post }) {
     //         })
     //     }
     return (
-        <section>
-            <div className={'post-preview'}>
-                <h1>post preview</h1>
-                <div className="post-header">
-                    <div>
-                        <p>{post.user.username}</p>
-                        <img className="user-img" src={post.user.imgUrl}></img>
-                    </div>
-                    <p>...</p>
-                </div>
-                <div className="post-img">
-                    <img src={post.imgUrl}></img>
-                </div>
-                <CommentList comments={post.comments} />
+    
+        <Card className={"root"}>
+            <CardHeader
+                avatar={
+                    <Avatar aria-label="recipe" className={"avatar"}>
+                        <img src={post.user.imgUrl} />
+                    </Avatar>
+                }
+                action={
+                    <IconButton aria-label="settings">
+                        <MoreVertIcon />
+                    </IconButton>
+                }
+                title={post.user.username}
+                subheader={post.title}
+                //  <h1{UtilService.timeDifference(Date.now(), post.createdAt)}
+            />
+            <div>
+                <img src={post.imgUrl} />
             </div>
+            <CardMedia
+                className={"media"}
+                image={post.title}
+                title="Paella dish"
+            />
 
-        </section>
-    );
+            <CardActions disableSpacing>
+                <IconButton aria-label="add to favorites">
+                    <FavoriteIcon />
+                </IconButton>
+                <IconButton aria-label="share">
+                    <ShareIcon />
+                </IconButton>
+                {/* <IconButton
+                    className={clsx(expand, {
+                        [expandOpen]: expanded,
+                    })}
+                    onClick={handleExpandClick}
+                    aria-expanded={expanded}
+                    aria-label="show more"
+                >
+                    <ExpandMoreIcon />
+                </IconButton> */}
+            </CardActions>
+            {/* <Collapse in={expanded} timeout="auto" unmountOnExit> */}
+            <CommentList comments={post.comments} />
+            {/* </Collapse> */}
+        </Card>
+    )
 }
 
-
-
-const useStyles = makeStyles((theme) => ({
-    root: {
-        maxWidth: 345,
-    },
-    media: {
-        height: 0,
-        paddingTop: '56.25%', // 16:9
-    },
-    expand: {
-        transform: 'rotate(0deg)',
-        marginLeft: 'auto',
-        transition: theme.transitions.create('transform', {
-            duration: theme.transitions.duration.shortest,
-        }),
-    },
-    expandOpen: {
-        transform: 'rotate(180deg)',
-    },
-    avatar: {
-        backgroundColor: red[500],
-    },
-}));
 
 // export function RecipeReviewCard() {
 

@@ -5,8 +5,8 @@ var gPosts = require('../data/post.json')
 
 export const postService = {
     query,
-    getById
-    // savePost,
+    getById,
+    savePost
     // remove
 }
 
@@ -49,7 +49,7 @@ function savePost(post) {
         gPosts.unshift(post)
     }
     StorageService.save('posts', gPosts)
-    // _saveEventisToFile(gEventies)
+    // _saveEventisToFile(gPosts)
     return Promise.resolve(post)
 }
 

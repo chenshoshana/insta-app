@@ -2,8 +2,19 @@ import { Component } from 'react'
 import { connect } from 'react-redux'
 import { PostList } from './PostList.jsx'
 import { loadPosts } from '../store/action/postActions.js'
+import { AddPost } from '../cmps/AddPost.jsx'
+import { AppFooter } from '../cmps/AppFooter.jsx'
 
 class _InstaApp extends Component {
+
+    // state = {
+    //     isNewPost: false
+    // }
+
+    // onToggleAddPost = () => {
+    //     if (this.state.isNewPost) this.setState({ isNewPost: false })
+    //     else this.setState({ isNewPost: true })
+    // }
 
     // componentDidMount() {
     //     const some = loadPosts(this.props.filterBy)
@@ -36,8 +47,8 @@ class _InstaApp extends Component {
 
         return (
             <section>
-                <h1>InstaApp</h1>
                 <PostList posts={posts} />
+                {/* {this.state.isNewPost && <AddPost toggleAddPost={this.onToggleAddPost} />} */}
             </section>
         )
     }

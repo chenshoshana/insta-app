@@ -3,7 +3,23 @@
     position: fixed;
     bottom: 0;
     min-width: rem(1350px);
-    height: 55px;
+    height: 35px;
+
+    .far {
+        color: red;
+        font-size: 18px;
+        height: 20px;
+        width: 20px;
+    }
+
+    .add-post-btn {
+        width: 40px;
+        border-radius: 5px;
+    }
+
+    .add-post-btn:hover{
+        cursor: pointer;
+    }
 
     .footer-logo {
         font-size: rem(34px);

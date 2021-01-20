@@ -18,7 +18,7 @@ import './assets/styles/scss/main.scss'
 
 export class App extends Component {
     render() {
-        return (<React.Fragment>
+        return (<React.Fragment className="main-app-layout">
             <AppHeader />
             <Switch>
                 <Route component={CommentEdit} path="/comment/edit" />

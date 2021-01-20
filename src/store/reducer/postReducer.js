@@ -4,7 +4,7 @@ if (sessionStorage.loggedinUser) localLoggedinUser = JSON.parse(sessionStorage.l
 
 const initialState = {
     posts: posts,
-    filterBy: { name: '', type: '', inStock: '', minPrice: 0, maxPrice: Infinity },
+    filterBy: { name: '', type: ''},
     loggedinUser: localLoggedinUser
 }
 export function postReducer(state = initialState, action) {

@@ -63,7 +63,7 @@ class _PostPreview extends Component {
                 />
                 <Button color="primary">follow</Button>
                 <div>
-                    <img src={post.imgUrl} />
+                    <img className="user-img" src={post.imgUrl} />
                 </div>
                 <CardMedia
                     className={"media"}

@@ -12,6 +12,7 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
+import { cloudinaryService } from '../service/cloudinaryService.js';
 
 
 export class _AddPost extends Component {
@@ -19,7 +20,8 @@ export class _AddPost extends Component {
     state = {
         post: {
             title: '',
-            imgUrl: '',
+            imgUrl: null,
+            createdAt: Date.now(),
             user: {
                 "_id": "sadad748",
                 "username": "abraham_lincoln",
@@ -29,6 +31,15 @@ export class _AddPost extends Component {
             likes: []
         }
 
+    }
+
+    onUploadImg = async (ev) => {
+        const imgUrl = await cloudinaryService.uploadImg(ev.target.files[0]);
+        console.log('imgUrl', imgUrl)
+        const postCopy = { ...this.state.post, imgUrl: imgUrl }
+        this.setState({ post: postCopy }, ()=> {
+            console.log('this.state.post', this.state.post)
+        })
     }
 
     // onSavePost = (ev) => {//on submit
@@ -116,20 +127,25 @@ export class _AddPost extends Component {
     // }
 
     render() {
+        const imageState = (this.state.post.imgUrl)? <img src={this.state.post.imgUrl} /> : <label htmlFor="imgUploader" className="add-post-modal-img-up">🖼</label>
+        console.log('this.state.post.imgUrl', this.state.post.imgUrl)
+        console.log('imageState', imageState)
         return (
             <div className="screen">
                 <div className="modal">
                     <form className="add-post-modal">
                         <div className="add-post-modal-close-btn-container">
-                        <button className="add-post-modal-close-btn" onClick={this.props.addPostFalse}>X</button>
+                            <button className="add-post-modal-close-btn" onClick={this.props.addPostFalse}>X</button>
                         </div>
                         <h4>New post</h4>
                         <textarea rows="1" placeholder="Write here" name="title" className="add-post-modal-textarea" onChange={this.onInputChange}></textarea>
-                        <label htmlFor="imgUploader" className="add-post-modal-img-up">🖼</label>
-                        <input type="file" accept="image/*" id="imgUploader" name="imgUrl" onChange={this.onInputChange} hidden />
+                        {/* <label htmlFor="imgUploader" className="add-post-modal-img-up">🖼</label> */}
+                        <input type="file" accept="image/*" id="imgUploader" name="imgUrl" onChange={this.onUploadImg} hidden />
+                        {imageState}
                         <div className="add-post-btn-container">
                             <button type="submit" className="add-post-modal-btn" onClick={this.onSavePost}>Add</button>
                         </div>
+                        
                     </form>
                 </div>
             </div>

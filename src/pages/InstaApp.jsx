@@ -4,6 +4,7 @@ import { PostList } from './PostList.jsx'
 import { loadPosts, removePost } from '../store/action/postActions.js'
 import { AddPost } from '../cmps/AddPost.jsx'
 import { AppFooter } from '../cmps/AppFooter.jsx'
+import Uploader from '../cmps/Uploader.jsx'
 
 class _InstaApp extends Component {
 
@@ -12,12 +13,12 @@ class _InstaApp extends Component {
     }
 
     onAddPostTrue = () => {
-        console.log('is post true- before', this.state);
+        // console.log('is post true- before', this.state);
         if (!this.state.isNewPost) this.setState({ isNewPost: true })
     }
 
     onAddPostFalse = () => {
-        console.log('is post false- before', this.state);
+        // console.log('is post false- before', this.state);
         if (this.state.isNewPost) this.setState({ isNewPost: false })
     }
 

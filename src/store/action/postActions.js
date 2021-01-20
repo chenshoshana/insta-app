@@ -49,9 +49,26 @@ export function editPost(post) {
     }
 }
 export function addPost(post) {
-    console.log(post, 'actions');
+    
     return (dispatch) => {
-        postService.savepost(post).then((savedPost) => { dispatch({ type: 'ADD_POST', post: savedPost }) })
+        console.log('new post:', post);
+        postService.savePost(post).then((savedPost) => { dispatch({ type: 'ADD_POST', post: savedPost }) })
     }
 }
+
+// export function addPost(post) {
+//     console.log('enter addPost at postAction');
+//     return async dispatch => {
+//       try {
+//         const savedPost = await postService.savePost(post)
+//         dispatch({ type: 'ADD_POST', post: savedPost })
+  
+//         // const score = await userService.increaseScore()
+//         // dispatch({ type: 'SET_SCORE', score })
+        
+//       } catch (err) {
+//         console.log('postActions: err in addPost', err)
+//       }
+//     }
+//   }
 

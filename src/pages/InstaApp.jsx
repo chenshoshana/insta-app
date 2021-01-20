@@ -59,7 +59,6 @@ class _InstaApp extends Component {
 
     render() {
         const { posts } = this.props
-        console.log('enter render')
         return (
             <section className="app-body">
                 <PostList posts={posts} />

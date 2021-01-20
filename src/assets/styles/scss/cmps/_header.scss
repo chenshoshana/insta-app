@@ -1,14 +1,18 @@
 .main-header {
     background-color: white;
     border-bottom: 1px solid #dbdbdb;
-    // border-bottom: groove;
     position: fixed;
     top: 0;
     min-width: rem(1350px);
+    z-index: 9999;
     // justify-content: space-between;
 
+    .header-container {
+        padding: 8px 0;
+    }
+
     .header-logo {
-        font-size: rem(34px);
+        font-size: rem(33px);
         letter-spacing: 0.8px;
         font-family: cookie, sans-serif;
         color: $clr1;
@@ -31,7 +35,7 @@
             font-weight: 700px;
         }
     }
-    
+
     .header-list :hover {
         text-decoration: none;
     }

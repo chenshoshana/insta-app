@@ -11,15 +11,15 @@
 }
 
 html {
-    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
-    line-height: 1.6;
-    color: $clr2;
+    font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+    // color: $clr2;
+    color: #262626;
     height: 100vh;
 }
 
 body {
-    font-size: rem(18px);
-    margin: 0 auto;
+    margin: 0;
+    background-color: #fafafa;
 }
 
 h1,
@@ -30,13 +30,7 @@ h5,
 h6 {
     margin: 0;
     // line-height: 1;
-    // text-align: center;
 }
-
-// main,
-// footer {
-//     padding: 5px;
-// }
 
 img {
     width: 100%;

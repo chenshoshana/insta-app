@@ -14,7 +14,7 @@ export const postService = {
 function query() {
     var posts = StorageService.load('posts')
 
-    if (!posts) {
+    if (posts) {
         StorageService.save('posts', gPosts)
         return Promise.resolve(gPosts)
     }
@@ -37,9 +37,6 @@ function remove(postId) {
         return Promise.resolve()
     } else return Promise.reject('No post')
 }
-
-
-
 
 function savePost(post) {
     var gPosts = StorageService.load('posts')

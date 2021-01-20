@@ -18,21 +18,23 @@ import './assets/styles/scss/main.scss'
 
 export class App extends Component {
     render() {
-        return (<React.Fragment className="main-app-layout">
-            <AppHeader />
-            <Switch>
-                {/* <Route component={CommentEdit} path="/comment/edit" /> */}
-                {/* <Route component={PostEdit} path="/edit/:postId?" / */}
-                {/* <Route component={PostDetails} path="/post/:postId" />  */}
-                {/* <Route component={ChatApp} path="/chat" /> */}
-                {/* <Route component={Admin} path="/admin/userId:" /> */}
-                {/* <Route component={UserDetails} path="/user/userId:" /> */}
-                {/* <Route component={About} path="/about" /> */}
-                <Route component={Signup} path="/signup" />
-                <Route component={Login} path="/login" />
-                <Route component={InstaApp} path="/" />
-            </Switch>
-            {/* <AppFooter /> */}
+        return (<React.Fragment>
+            <div className="app">
+                <AppHeader />
+                <Switch>
+                    {/* <Route component={CommentEdit} path="/comment/edit" /> */}
+                    {/* <Route component={PostEdit} path="/edit/:postId?" / */}
+                    {/* <Route component={PostDetails} path="/post/:postId" />  */}
+                    {/* <Route component={ChatApp} path="/chat" /> */}
+                    {/* <Route component={Admin} path="/admin/userId:" /> */}
+                    {/* <Route component={UserDetails} path="/user/userId:" /> */}
+                    {/* <Route component={About} path="/about" /> */}
+                    <Route component={Signup} path="/signup" />
+                    <Route component={Login} path="/login" />
+                    <Route component={InstaApp} path="/" />
+                </Switch>
+                {/* <AppFooter /> */}
+            </div>
         </React.Fragment>
         )
     }

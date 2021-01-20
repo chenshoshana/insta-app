@@ -1,7 +1,13 @@
-.app-body{
+.app {
+    background-color:white;
+    display: flex;
+    justify-content: center;
+    
+}
+.app-body {
     margin-top: 50px;
-
-    .add-post-btn{
+    max-width: 600px;
+    .add-post-btn {
         position: fixed;
         bottom: 15px;
         right: 15px;

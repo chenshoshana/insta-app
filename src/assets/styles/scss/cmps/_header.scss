@@ -3,9 +3,9 @@
     border-bottom: 1px solid #dbdbdb;
     position: fixed;
     top: 0;
-    min-width: rem(1350px);
     z-index: 9999;
-    // justify-content: space-between;
+    width: 100vw;
+    // min-width: rem(1350px);
 
     .header-container {
         padding: 8px 0;

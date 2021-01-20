@@ -61,6 +61,7 @@ export class _AddPost extends Component {
         if (!this.state.post.title || !this.state.post.imgUrl) return alert('All fields are required')
         await this.props.addPost(savedPost)
         this.setState({ savedPost: { title: '', imgUrl: '' } })
+        this.props.addPostFalse()
     }
 
     onInputChange = (ev) => {//on input change

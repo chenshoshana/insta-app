@@ -1,8 +1,8 @@
 .root {
     max-width: 345;
     margin: 1px;
-    margin-top: 40px;
-
+    margin-top: 55px;
+    margin-bottom: 40px;
 
     .user-img {
         cursor: pointer;
@@ -22,7 +22,6 @@
         background-color: red;
     }
     .post-preview {
-        margin-bottom: 20px;
-        margin-top: 20px;
+        margin-top: 40px;
     }
 }

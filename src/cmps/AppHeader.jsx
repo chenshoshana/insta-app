@@ -28,7 +28,7 @@ export function AppHeader(props) {
                         {/* <li><Link to="/eventi">Map</Link></li> */}
                     </ul>
                     <Avatar aria-label="recipe" className={"avatar"}>
-                        {/* <img src={user.imgUrl} /> */}
+                        <img src="https:img.mako.co.il/2015/07/02/jfk.jpg"/> 
                     </Avatar>
 
 

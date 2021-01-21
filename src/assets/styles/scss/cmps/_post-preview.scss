@@ -1,9 +1,11 @@
+
 .root {
     max-width: 345;
     margin: 1px;
     margin-top: 55px;
     margin-bottom: 40px;
-
+    
+border-top: 1px solid lightgray;
     .user-img {
         cursor: pointer;
     }

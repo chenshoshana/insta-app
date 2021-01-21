@@ -3,7 +3,7 @@ import { addComment } from '../store/action/commentActions.js'
 import { connect } from 'react-redux'
 import Avatar from '@material-ui/core/Avatar';
 
-export class _AddComment extends Component {
+class _AddComment extends Component {
 
     state = {
         comment: {
@@ -48,23 +48,24 @@ export class _AddComment extends Component {
                         <img src={post.user.imgUrl} />
                     </Avatar>
                 }
-                <input type="txt"/>
+                <input type="txt" />
 
             </section>
         )
 
 
     }
-
-    const mapStateToProps = state => {
-        return {
-            posts: state.postModule.posts,
-        }
+}
+const mapStateToProps = state => {
+    return {
+        posts: state.postModule.posts,
     }
+}
 
-    const mapDispatchToProps = {
-        addPost
-    }
+const mapDispatchToProps = {
+    addPost
+}
 
-    export const AddPost = connect(mapStateToProps, mapDispatchToProps)(_AddPost)
+export const AddPost = connect(mapStateToProps, mapDispatchToProps)(_AddPost)
+
 

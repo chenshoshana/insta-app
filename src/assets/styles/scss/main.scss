@@ -17,7 +17,7 @@
 @import "cmps/header";
 @import "cmps/add-post";
 // @import "cmps/post-edit";
-// @import "cmps/post-preview";
+@import "cmps/post-preview";
 // @import "cmps/review-list";
 
 // Pages
@@ -26,7 +26,6 @@
 @import "pages/login-page";
 @import "pages/signup-page";
 @import "pages/post-details";
-@import "pages/user-details";
 @import "pages/post-list";
 @import "pages/insta-app";
 

@@ -3,8 +3,8 @@ import { Link } from 'react-router-dom'
 
 export function AppHeader() {
     return (
-        <section className="main-header">
-            <header className="main-layout">
+        <section className="main-header main-layout">
+            <header>
                 <div className="header-container flex align-center space-between">
                     <div className="header-left flex align-center">
                         <div className="header-logo">
@@ -15,6 +15,7 @@ export function AppHeader() {
                         {/* <button className="login-btn">Login</button> */}
                         {/* <button className="signup-btn">Signup</button> */}
                     </div>
+                    <input type="text" name="text" placeholder="Search" autoComplete="off"  className="search-input"/>
                     <ul className="header-list flex justify-center clean-list">
                         <li><Link to="/chat">📝</Link></li>
                         <li><Link to="/favorites">🤍</Link></li>

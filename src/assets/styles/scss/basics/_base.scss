@@ -46,7 +46,10 @@ a:hover {
 }
 
 .main-layout {
-    max-width: 1350px;
-    margin: 0 auto;
+    max-width: 600px;
+    // margin: 0 auto;
+    -webkit-box-align: center;
+    align-items: center;
+    height: 54px;
 
 }

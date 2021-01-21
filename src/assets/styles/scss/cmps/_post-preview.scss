@@ -1,6 +1,9 @@
 .root {
     max-width: 345;
     margin: 1px;
+    margin-top: 55px;
+    margin-bottom: 40px;
+
     .user-img {
         cursor: pointer;
     }
@@ -18,7 +21,11 @@
     .avatar {
         background-color: red;
     }
-    
+
+    .post-preview {
+        margin-top: 40px;
+    }
+
     .liked {
         svg {
             fill: red;

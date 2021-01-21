@@ -5,11 +5,19 @@ import { loadPosts, removePost } from '../store/action/postActions.js'
 import { AddPost } from '../cmps/AddPost.jsx'
 import { AppFooter } from '../cmps/AppFooter.jsx'
 import Uploader from '../cmps/Uploader.jsx'
+import { RemovePostConfirm } from '../cmps/RemovePostConfirm.jsx'
 
 class _InstaApp extends Component {
 
     state = {
-        isNewPost: false
+        isNewPost: false,
+        isRemovePost: false
+    }
+
+    onToggleRemovePost = () => {
+        console.log('toggle');
+        if (this.state.isRemovePost) this.setState({ isRemovePost: false })
+        else this.setState({ isRemovePost: true })
     }
 
     onAddPostTrue = () => {
@@ -22,10 +30,6 @@ class _InstaApp extends Component {
         if (this.state.isNewPost) this.setState({ isNewPost: false })
     }
 
-    // onToggleAddPost = () => {
-    //     if (this.state.isNewPost) this.setState({ isNewPost: false })
-    //     else this.setState({ isNewPost: true })
-    // }
 
     // componentDidMount() {
     //     const some = loadPosts(this.props.filterBy)
@@ -62,7 +66,8 @@ class _InstaApp extends Component {
         const { posts } = this.props
         return (
             <section className="app-body">
-                <PostList posts={posts} />
+                {this.state.isRemovePost && <RemovePostConfirm toggleRemovePost={this.onToggleRemovePost} />}
+                <PostList posts={posts} toggleRemovePost={this.onToggleRemovePost} />
                 <div>
                     <button className="add-post-btn" onClick={this.onAddPostTrue}>➕</button>
                 </div>

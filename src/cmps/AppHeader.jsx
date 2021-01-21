@@ -1,7 +1,12 @@
 import { Link } from 'react-router-dom'
+import Avatar from '@material-ui/core/Avatar';
+
 // import { connect } from 'react-redux'
 
-export function AppHeader() {
+export function AppHeader(props) {
+    console.log('enter appHeader:', props.user);
+    // const img = this.props.user.imgUrl
+
     return (
         <section className="main-header main-layout">
             <header>
@@ -15,12 +20,17 @@ export function AppHeader() {
                         {/* <button className="login-btn">Login</button> */}
                         {/* <button className="signup-btn">Signup</button> */}
                     </div>
-                    <input type="text" name="text" placeholder="Search" autoComplete="off"  className="search-input"/>
+                    <input type="text" name="text" placeholder="Search" autoComplete="off" className="search-input" />
                     <ul className="header-list flex justify-center clean-list">
                         <li><Link to="/chat">📝</Link></li>
                         <li><Link to="/favorites">🤍</Link></li>
+                        {/* <i class="far fa-plus-square"></i> */}
                         {/* <li><Link to="/eventi">Map</Link></li> */}
                     </ul>
+                    <Avatar aria-label="recipe" className={"avatar"}>
+                        {/* <img src={user.imgUrl} /> */}
+                    </Avatar>
+
 
                 </div>
             </header >

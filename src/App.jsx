@@ -17,10 +17,19 @@ import './assets/styles/scss/main.scss'
 
 
 export class App extends Component {
+
+    state = {
+        user: {
+            "_id": "sadad748",
+            "username": "chen_shoshana",
+            "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSEpUUJVqlxCFXUdaSn7ieT0ucZkZGX1NlmBQ&usqp=CAU"
+        }
+    }
+
     render() {
         return (<React.Fragment>
             <div className="app">
-                <AppHeader />
+                <AppHeader user={this.state} />
                 <Switch>
                     {/* <Route component={CommentEdit} path="/comment/edit" /> */}
                     {/* <Route component={PostEdit} path="/edit/:postId?" / */}

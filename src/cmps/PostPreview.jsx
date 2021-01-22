@@ -24,7 +24,7 @@ import { RemovePostConfirm } from './RemovePostConfirm.jsx';
 
 class _PostPreview extends Component {
 
-  
+
 
     // var total = {
     //     likes: [],
@@ -44,6 +44,16 @@ class _PostPreview extends Component {
     //             total.comments += comment.rate;
     //         })
     //     }
+
+    state = {
+        isLiked: false
+    }
+
+    onToggleLiked = () => {
+        console.log('onToggleLiked');
+        if (this.state.isLiked) this.setState({ isLiked: false })
+        else this.setState({ isLiked: true })
+    }
 
     render() {
         const { post } = this.props
@@ -79,7 +89,7 @@ class _PostPreview extends Component {
 
                     <CardActions disableSpacing>
                         {/* <IconButton aria-label="add to favorites"> */}
-                        <IconButton  aria-label="add to favorites" className="liked"> {/*className={isLiked ? 'liked' : ''}*/}
+                        <IconButton aria-label="add to favorites" onClick={this.onToggleLiked} className={this.state.isLiked ? "liked" : ''}>
                             <FavoriteIcon />
                         </IconButton>
                         <IconButton aria-label="share">

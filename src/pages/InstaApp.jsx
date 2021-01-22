@@ -3,8 +3,6 @@ import { connect } from 'react-redux'
 import { PostList } from './PostList.jsx'
 import { loadPosts, removePost } from '../store/action/postActions.js'
 import { AddPost } from '../cmps/AddPost.jsx'
-import { AppFooter } from '../cmps/AppFooter.jsx'
-import Uploader from '../cmps/Uploader.jsx'
 import { RemovePostConfirm } from '../cmps/RemovePostConfirm.jsx'
 
 class _InstaApp extends Component {
@@ -15,7 +13,7 @@ class _InstaApp extends Component {
     }
 
     onToggleRemovePost = () => {
-        console.log('toggle');
+        console.log('toggleRemovePost');
         if (this.state.isRemovePost) this.setState({ isRemovePost: false })
         else this.setState({ isRemovePost: true })
     }
@@ -72,6 +70,9 @@ class _InstaApp extends Component {
                     <button className="add-post-btn" onClick={this.onAddPostTrue}>➕</button>
                 </div>
                 {this.state.isNewPost && <AddPost addPostFalse={this.onAddPostFalse} />}
+                <footer className="main-footer flex justify-center ">
+                    <small>InstaApp - All Rights Reserved © 2021</small>
+                </footer>
             </section>
         )
     }

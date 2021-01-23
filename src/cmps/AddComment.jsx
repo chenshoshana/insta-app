@@ -13,7 +13,6 @@ class _AddComment extends Component {
                 "username": "abraham_lincoln",
                 "imgUrl": "https://www.goodesign.co.il/wp-content/uploads/2017/03/HIPSTORY-Shimoni-Lincoln.jpg"
             },
-            likes: [],
             createdAt: Date.now()
         }
     }
@@ -22,17 +21,18 @@ class _AddComment extends Component {
     onSaveComment = async ev => {
         ev.preventDefault()
         const savedComment = this.state.comment
+        // console.log('txt',this.state.comment.txt);
         if (!this.state.comment.txt) return alert('Can not upload empty comment')
         await addComment(savedComment)
         this.setState({ savedComment: { txt: '' } })
-        this.props.addCommentFalse()
+        // this.props.addCommentFalse()
     }
 
     onInputChange = (ev) => {//on input change
-        console.log('ev.target.value:', ev.target.value);
+        // console.log('ev.target.value:', ev.target.value);
         const comment = { ...this.state.comment };
-        comment[ev.target.name] = ev.target.value;
-        console.log(comment[ev.target.name]);
+        comment.txt = ev.target.value;
+        console.log(comment.txt);
         this.setState({
             comment: comment
         });
@@ -43,12 +43,15 @@ class _AddComment extends Component {
     render() {
         return (
             <section>
-                avatar={
+                <form>
                     <Avatar aria-label="recipe" className={"avatar"}>
-                        <img src={post.user.imgUrl} />
+                        <img src="https:img.mako.co.il/2015/07/02/jfk.jpg" />
                     </Avatar>
-                }
-                <input type="txt" />
+
+                    <input type="txt" placeholder="add comment" onChange={this.onInputChange} />
+                    <button onClick={this.onSaveComment}>add</button >
+                    <button>x</button>
+                </form>
 
             </section>
         )
@@ -58,14 +61,14 @@ class _AddComment extends Component {
 }
 const mapStateToProps = state => {
     return {
-        posts: state.postModule.posts,
+        comments: state.postModule.comments
     }
 }
 
 const mapDispatchToProps = {
-    addPost
+    addComment
 }
 
-export const AddPost = connect(mapStateToProps, mapDispatchToProps)(_AddPost)
+export const AddComment = connect(mapStateToProps, mapDispatchToProps)(_AddComment)
 
 

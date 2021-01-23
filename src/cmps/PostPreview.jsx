@@ -20,11 +20,12 @@ import { removePost } from '../store/action/postActions.js'
 import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux'
 import { RemovePostConfirm } from './RemovePostConfirm.jsx';
+import { AddComment } from './AddComment.jsx';
 
 
 class _PostPreview extends Component {
 
-  
+
 
     // var total = {
     //     likes: [],
@@ -79,7 +80,7 @@ class _PostPreview extends Component {
 
                     <CardActions disableSpacing>
                         {/* <IconButton aria-label="add to favorites"> */}
-                        <IconButton  aria-label="add to favorites" className="liked"> {/*className={isLiked ? 'liked' : ''}*/}
+                        <IconButton aria-label="add to favorites" className="liked"> {/*className={isLiked ? 'liked' : ''}*/}
                             {post.likes.length}<FavoriteIcon />
                         </IconButton>
                         <IconButton aria-label="share">
@@ -98,8 +99,21 @@ class _PostPreview extends Component {
                     </CardActions>
                     {/* <Collapse in={expanded} timeout="auto" unmountOnExit> */}
                     <CommentList comments={post.comments} />
+                    <AddComment />
+                    {/* <section>
+                            <Avatar aria-label="recipe" className={"avatar"}>
+                                <img src={post.user.imgUrl} />
+                            </Avatar>
+                        
+                        <form>
+                            <input type="txt" placeholder="add comment" />
+                            <button>add</button>
+                        </form>
+
+                    </section> */}
                     {/* </Collapse> */}
-                    <Button>add comment</Button>
+                    {/* <Button>add comment</Button> */}
+
                 </Card>
                 {/* { this.state.isRemovePost && <RemovePostConfirm toggleRemovePost={this.onToggleRemovePost} />} */}
             </section>

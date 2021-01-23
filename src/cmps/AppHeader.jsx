@@ -7,9 +7,13 @@ export function AppHeader(props) {
     console.log('enter appHeader:', props.user);
     // const img = this.props.user.imgUrl
 
+    // nav-layout needs flex justify center
+    // main-layout need min-width 980px
+    // main-layout need max-width 1200px
+
     return (
-        <section className="main-header main-layout">
-            <header>
+        <section className="main-header nav-layout">
+            <header className="main-layout">
                 <div className="header-container flex align-center space-between">
                     <div className="header-left flex align-center">
                         <div className="header-logo">

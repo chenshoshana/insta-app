@@ -78,7 +78,8 @@ class _PostPreview extends Component {
                     />
 
                     <CardActions disableSpacing>
-                        <IconButton aria-label="add to favorites">
+                        {/* <IconButton aria-label="add to favorites"> */}
+                        <IconButton  aria-label="add to favorites" className="liked"> {/*className={isLiked ? 'liked' : ''}*/}
                             <FavoriteIcon />
                         </IconButton>
                         <IconButton aria-label="share">

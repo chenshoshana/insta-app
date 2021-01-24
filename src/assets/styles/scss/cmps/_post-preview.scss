@@ -4,6 +4,7 @@
     margin-top: 55px;
     margin-bottom: 40px;
 
+    border-top: 1px solid lightgray;
     .user-img {
         cursor: pointer;
     }
@@ -22,8 +23,20 @@
         // background-color: red;
     }
 
-    .post-preview {
-        margin-top: 40px;
+    // .post-preview {
+    //     margin-top: 40px;
+    // }
+
+    .post-actions-btns {
+        p {
+            margin-inline-start: 30px;
+            margin-top: 0;
+        }
+        svg {
+            // fill: rgb(243, 243, 243);
+            // border: 1px solid black;
+            padding: 0;
+        }
     }
 
     .liked {

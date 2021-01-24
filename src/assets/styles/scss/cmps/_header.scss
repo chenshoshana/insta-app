@@ -44,8 +44,14 @@
     .header-list {
         // margin-inline-end: 15px;
         cursor: pointer;
+
+        // .nav-icons >*:not(:last-child) {
+        //     margin-inline-end: 20px;
+        // }
         
-        .nav-icons:hover {
+        .nav-icons >* {
+            margin-inline-end: 20px;
+            font-size: 23px;
         }
 
         li :last-child {

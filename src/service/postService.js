@@ -1,7 +1,12 @@
 import { StorageService } from './storageService.js';
 import { utilService } from './utilService.js';
+import Axios from 'axios';
+const axios = Axios.create({
+    withCredentials: true
+})
 const fs = require('fs')
 var gPosts = require('../data/post.json')
+const BASE_URL = 'http://localhost:3030/api/posts';
 
 
 export const postService = {
@@ -11,10 +16,9 @@ export const postService = {
     remove
 }
 
-
-function query() {
-    var posts = StorageService.load('posts')
-
+async function query() {
+    var posts = await axios.get(`${BASE_URL}`)
+        .then(res => res.data)
     if (!posts) {
         StorageService.save('posts', gPosts)
         return Promise.resolve(gPosts)

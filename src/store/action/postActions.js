@@ -48,7 +48,7 @@ export function editPost(post) {
             })
     }
 }
-export function addPost(post) {
+export function addPost(post,comment) {
     
     return (dispatch) => {
         console.log('new post:', post);

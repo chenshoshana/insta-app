@@ -27,9 +27,9 @@ export function editComment(comment) {
     }
 }
 export function addComment(comment) {
-    console.log(comment, 'actions');
+    console.log(comment, 'action-add comment');
     return (dispatch) => {
-        postService.addComment(comment).then((savedComment) => { dispatch({ type: 'ADD_COMMENT', comment: savedComment }) })
+        postService.savePost().then((savedComment) => { dispatch({ type: 'ADD_COMMENT', comment: savedComment }) })
     }
 }
 

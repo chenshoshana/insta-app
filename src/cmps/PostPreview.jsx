@@ -21,6 +21,7 @@ import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux'
 import { RemovePostConfirm } from './RemovePostConfirm.jsx';
 import { PostActionsBtns } from './PostActionsBtns.jsx'
+import { AddComment } from './AddComment.jsx';
 
 
 class _PostPreview extends Component {
@@ -89,17 +90,19 @@ class _PostPreview extends Component {
                         title="Paella dish"
                     />
                     {/* {<PostActionsBtns post={post} clickedLike={clickedLike} toggleLiked={this.onToggleLiked} />} */}
-                    <CardActions disableSpacing>
-                    {/* <IconButton aria-label="add to favorites"> */}
-                     <IconButton aria-label="add to favorites" onClick={this.onToggleLiked} className={this.state.isLiked ? "liked" : ''}>
-                            <FavoriteIcon />
-                        </IconButton>
-                        {/* <i class="fi-rr-bookmark"></i> */} 
-                    {/* <IconButton aria-label="share">
+                    <div className="post-actions-btns">
+                        <CardActions disableSpacing>
+                            {/* <IconButton aria-label="add to favorites"> */}
+                            <IconButton aria-label="add to favorites" onClick={this.onToggleLiked} className={this.state.isLiked ? "liked" : ''}>
+                                <FavoriteIcon />
+                            </IconButton>
+                            {/* <i class="fi-rr-bookmark"></i> */}
+                            {/* <IconButton aria-label="share">
                             <ShareIcon />
                         </IconButton> */}
-                     </CardActions>
-                    <p>{post.likes.length} likes</p>
+                        </CardActions>
+                        <p>{post.likes.length} likes</p>
+                    </div>
                     {/* <IconButton
                         className={clsx(expand, {
                             [expandOpen]: expanded,
@@ -112,8 +115,21 @@ class _PostPreview extends Component {
                     </IconButton> */}
                     {/* <Collapse in={expanded} timeout="auto" unmountOnExit> */}
                     <CommentList comments={post.comments} />
+                    <AddComment />
+                    {/* <section>
+                            <Avatar aria-label="recipe" className={"avatar"}>
+                                <img src={post.user.imgUrl} />
+                            </Avatar>
+                        
+                        <form>
+                            <input type="txt" placeholder="add comment" />
+                            <button>add</button>
+                        </form>
+
+                    </section> */}
                     {/* </Collapse> */}
-                    <Button>add comment</Button>
+                    {/* <Button>add comment</Button> */}
+
                 </Card>
                 {/* { this.state.isRemovePost && <RemovePostConfirm toggleRemovePost={this.onToggleRemovePost} />} */}
             </section>

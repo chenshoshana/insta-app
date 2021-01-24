@@ -24,16 +24,16 @@ export function AppHeader() {
                     <input type="text" name="text" placeholder="Search" autoComplete="off" className="search-input" />
                     <div className="header-list clean-list">
                         {/* <ul> */}
-                        <div className="nav-icons flex space-between" >
-                            <i className="fas fa-home"></i>
-                            <i className="fab fa-facebook-messenger"></i>
-                            <i className="far fa-compass"></i>
-                            <i className="far fa-heart"></i>
+                        <div className="nav-icons flex" >
+                            <div><i className="fas fa-home"></i></div>
+                            <div><i className="fab fa-facebook-messenger"></i></div>
+                            <div><i className="far fa-compass"></i></div>
+                            <div><i className="far fa-heart"></i></div>
                         </div>
-                            {/* <i class="far fa-plus-square"></i> */}
-                            {/* <li><Link to="/favorites">🤍</Link></li> */}
-                            {/* <li><Link to="/chat">📝</Link></li> */}
-                            {/* <li><Link to="/eventi">Map</Link></li> */}
+                        {/* <i class="far fa-plus-square"></i> */}
+                        {/* <li><Link to="/favorites">🤍</Link></li> */}
+                        {/* <li><Link to="/chat">📝</Link></li> */}
+                        {/* <li><Link to="/eventi">Map</Link></li> */}
                         {/* </ul> */}
                         <Avatar aria-label="recipe" className={"avatar"}>
                             <img src="https://www.goodesign.co.il/wp-content/uploads/2017/03/HIPSTORY-Shimoni-Lincoln.jpg" />

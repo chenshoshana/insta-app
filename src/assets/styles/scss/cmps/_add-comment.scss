@@ -1,23 +1,10 @@
 .comment-area {
-
     form {
         // .add-comment-btn-container {
         //     //changing all margin at .add-post-modal-btn
         //     display: flex;
         //     flex-direction: row-reverse;
         //     padding: rem(10px);
-
-        .add-comment-btn {
-            background-color: transparent;
-            border: 0;
-            color: #0095f6;
-            font-weight: 600;
-            font-size: 14px;
-            // display: flex;
-            // flex-direction: row-reverse;
-            // padding: rem(10px);
-        }
-        // }
 
         .add-comment-textarea {
             width: 100%;
@@ -29,5 +16,18 @@
             display: block;
             font-family: inherit;
         }
+
+        .add-comment-btn {
+            background-color: transparent;
+            border: 0;
+            color: #0095f6;
+            font-weight: 600;
+            font-size: 14px;
+            display: inline;
+            // display: flex;
+            // flex-direction: row-reverse;
+            // padding: rem(10px);
+        }
+        // }
     }
 }

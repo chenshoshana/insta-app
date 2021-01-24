@@ -44,7 +44,8 @@ class _AddComment extends Component {
         return (
             <section className="comment-area">
                 <form>
-                    <textarea rows="1" placeholder="Add a comment..." name="comment" className="add-comment-textarea" onChange={this.onInputChange}></textarea>
+                    <input type="txt" placeholder="Add a comment..." name="comment" className="add-comment-textarea" onChange={this.onInputChange} />
+                    {/* <textarea rows="1" placeholder="Add a comment..." name="comment" className="add-comment-textarea" onChange={this.onInputChange}></textarea> */}
                     <button className="add-comment-btn" onClick={this.onSaveComment}>Post</button >
                     {/* <input type="txt" placeholder="add comment"  onChange={this.onInputChange} /> */}
                 </form>

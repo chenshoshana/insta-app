@@ -48,13 +48,28 @@ export function editPost(post) {
             })
     }
 }
-export function addPost(post,comment) {
+// export function addPost(post,comment) {
     
-    return (dispatch) => {
-        console.log('new post:', post);
-        postService.savePost(post).then((savedPost) => { dispatch({ type: 'ADD_POST', post: savedPost }) })
+//     return (dispatch) => {
+//         console.log('new post:', post);
+//         postService.savePost(post).then((savedPost) => { dispatch({ type: 'ADD_POST', post: savedPost }) })
+//     }
+// }
+
+export function addPost(post) {
+    return async dispatch => {
+      try {
+        const addedPost = await postService.savePost(post)
+        dispatch({ type: 'ADD_POST', post: addedPost })
+  
+        // const comment = await commentService.increaseComment()
+        // dispatch({ type: 'SET_COMMENT', comment: comment })
+        
+      } catch (err) {
+        console.log('PostActions: err in savePost', err)
+      }
     }
-}
+  }
 
 // export function addPost(post) {
 //     console.log('enter addPost at postAction');

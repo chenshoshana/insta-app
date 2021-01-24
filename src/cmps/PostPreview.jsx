@@ -66,7 +66,7 @@ class _PostPreview extends Component {
 
     render() {
         const { post } = this.props
-        const clickedLike = this.state.isLiked
+        // const clickedLike = this.state.isLiked
         return (
             <section>
                 <Card className={"root"}>
@@ -96,7 +96,7 @@ class _PostPreview extends Component {
                         image={post.title}
                         title="Paella dish"
                     />
-                    {<PostActionsBtns post={post} clickedLike={clickedLike} toggleLiked={this.onToggleLiked} />}
+                    {<PostActionsBtns post={post} toggleLiked={this.onToggleLiked} />}{/*//clickedLike={clickedLike}*/}
                     {/* <div className="post-actions-btns">
                         <CardActions disableSpacing> */}
                     {/* <IconButton aria-label="add to favorites"> */}

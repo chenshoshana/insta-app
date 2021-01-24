@@ -29,17 +29,22 @@ import { RemovePostConfirm } from './RemovePostConfirm.jsx';
 export class _PostActionsBtns extends Component {
 
     state = {
-        likes: [
-            {
-                id: utilService.makeId(),
-                byUser: {
-                    "_id": "sadad748",
-                    "username": "abraham_lincoln",
-                    "imgUrl": "https://www.goodesign.co.il/wp-content/uploads/2017/03/HIPSTORY-Shimoni-Lincoln.jpg"
-                },
-            }
-        ],
-        likesToDisplay: ''
+        // likes: [
+        //     {
+        //         id: utilService.makeId(),
+        //         byUser: {
+        //             "_id": "sadad748",
+        //             "username": "abraham_lincoln",
+        //             "imgUrl": "https://www.goodesign.co.il/wp-content/uploads/2017/03/HIPSTORY-Shimoni-Lincoln.jpg"
+        //         },
+        //     }
+        // ],
+        // likesToDisplay: ''
+    }
+    componentDidMount() {
+        // check the post likes array, search for the current user _id
+        // if user _id exists mark heart as red, if _id === -1 mark as black
+
     }
 
     isLiked = () => {
@@ -108,7 +113,7 @@ export class _PostActionsBtns extends Component {
             <div className="post-actions-btns">
                 <CardActions disableSpacing>
                     {/* <IconButton aria-label="add to favorites"> */}
-                    <IconButton aria-label="add to favorites" onClick={this.isLiked} className={this.props.clickedLike ? "liked" : ''}>
+                    <IconButton aria-label="add to favorites" onClick={this.props.toggleLiked} className={this.props.clickedLike ? "liked" : ''}>
                         <FavoriteIcon />
                     </IconButton>
                     <i className="fi-rr-bookmark"></i>

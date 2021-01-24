@@ -1,10 +1,10 @@
 import { likeService } from "../../service/likeService.js"
 
-export function addLike(like) {
+export function toggleLike(like) {
 
     return (dispatch) => {
         console.log('new like:', like);
-        likeService.saveLike(like).then((savedLike) => { dispatch({ type: 'ADD_POST', like: savedLike }) })
+        likeService.saveLike(like).then((savedLike) => { dispatch({ type: 'ADD_LIKE', like: savedLike }) })
     }
 }
 

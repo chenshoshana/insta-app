@@ -1,16 +1,20 @@
 const posts = []
-let localLoggedinUser = null
-if (sessionStorage.loggedinUser) localLoggedinUser = JSON.parse(sessionStorage.loggedinUser)
+let localLoggedinUser = {
+    "_id": "sadad748",
+    "username": "abraham_lincoln",
+    "imgUrl": "https://www.goodesign.co.il/wp-content/uploads/2017/03/HIPSTORY-Shimoni-Lincoln.jpg"
+}
+// if (sessionStorage.loggedinUser) localLoggedinUser = JSON.parse(sessionStorage.loggedinUser)
 
 const initialState = {
     posts: posts,
-    filterBy: { name: '', type: ''},
+    filterBy: { name: '', type: '' },
     loggedinUser: localLoggedinUser
 }
 export function postReducer(state = initialState, action) {
     switch (action.type) {
         case 'SET_POSTS':
-          
+
             return { ...state, posts: action.posts }
         case 'EDIT_POST':
             const editedevPosts = state.posts.map(post => {
@@ -23,7 +27,7 @@ export function postReducer(state = initialState, action) {
             // , inStock: '', minPrice: 0, maxPrice: 1000 }
             return { ...state, posts: editedevPosts }
         case 'ADD_POST':
-            
+
             state = { ...state, posts: [...state.posts, action.post] }
             return state
         case 'FILTER':

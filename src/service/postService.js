@@ -1,4 +1,5 @@
 import { StorageService } from './storageService.js';
+import { utilService } from './utilService.js';
 const fs = require('fs')
 var gPosts = require('../data/post.json')
 
@@ -45,22 +46,12 @@ function savePost(post) {
         const idx = gPosts.findIndex(currPost => currPost._id === post._id)
         gPosts[idx] = post;
     } else {
-        post._id = _makeId()
+        post._id = utilService.makeId()
         gPosts.unshift(post)
     }
     StorageService.save('posts', gPosts)
     // _saveEventisToFile(gPosts)
     return Promise.resolve(post)
-}
-
-
-function _makeId(length = 5) {
-    var txt = '';
-    var possible = 'ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789';
-    for (let i = 0; i < length; i++) {
-        txt += possible.charAt(Math.floor(Math.random() * possible.length));
-    }
-    return txt;
 }
 
 function _savePostsToFile(gPosts) {

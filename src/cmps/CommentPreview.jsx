@@ -9,7 +9,7 @@ import Avatar from '@material-ui/core/Avatar';
 import ImageIcon from '@material-ui/icons/Image';
 import WorkIcon from '@material-ui/icons/Work';
 import BeachAccessIcon from '@material-ui/icons/BeachAccess';
-import { UtilService } from '../service/utilService.js';
+import { utilService } from '../service/utilService.js';
 
 
 export function CommentPreview({ comment }) {
@@ -23,7 +23,7 @@ export function CommentPreview({ comment }) {
                     </Avatar>
                 </ListItemAvatar>
                 <ListItemText primary={comment.byUser.username} secondary={comment.txt} />
-                <CardHeader subheader = {UtilService.timeDifference(Date.now(), comment.createdAt)}/>
+                <CardHeader subheader = {utilService.timeDifference(Date.now(), comment.createdAt)}/>
             </ListItem>
         </List>
     );

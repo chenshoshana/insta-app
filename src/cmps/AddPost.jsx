@@ -1,7 +1,6 @@
 import { React, Component } from 'react'
 import { addPost } from '../store/action/postActions.js'
 import { connect } from 'react-redux'
-
 import { postService } from '../service/postService.js'
 import TextField from '@material-ui/core/TextField';
 import { makeStyles } from '@material-ui/core/styles';
@@ -42,17 +41,6 @@ export class _AddPost extends Component {
         })
     }
 
-    // onSavePost = (ev) => {//on submit
-    //     ev.preventDefault();
-
-    //     postService.savePost(this.state.post)
-    //         .then(savedPost => {
-    //             console.log('Saves succesfully', savedPost);
-    //             this.props.history.push('/');//this.context.history.push('/path')
-    //         })
-
-    // };
-
     onSavePost = async ev => {
         ev.preventDefault()
         console.log('this.state', this.state)
@@ -65,66 +53,20 @@ export class _AddPost extends Component {
     }
 
     onInputChange = (ev) => {//on input change
-        console.log('ev.target.value:', ev.target.value);
-        const post = { ...this.state.post };
-        post[ev.target.name] = ev.target.value;
-        console.log(post[ev.target.name]);
+        console.log('ev.target.value:', ev.target.value)
+        const post = { ...this.state.post }
+        post[ev.target.name] = ev.target.value
+        console.log(post[ev.target.name])
         this.setState({
             post
-        });
-    };
-
-    // handleInput = ({ target }) => {
-    //     const { name, type } = target
-    //     const value = (type === 'checkbox') ? target.checked :
-    //         (type === 'number') ? +target.value : target.value
-
-    //     this.setState(prevState => {
-    //         return {
-    //             toy: {
-    //                 ...prevState.toy,
-    //                 [name]: value
-    //             }
-    //         }
-    //     })
-    // }
+        })
+    }
 
     // onAddPostToView = () => {
     //     postService.add(this.state.post)
     //         .then(savedPost => {
     //             this.props.addPost()
     //         })
-    // }
-
-    // render() {
-    //     return (
-    //         <Card className={"root"}>
-    //             <CardActionArea>
-
-    //                 <CardContent>
-    //                     <Typography gutterBottom variant="h5" component="h2">
-    //                         New post
-    //           </Typography>
-    //                     <Typography variant="body2" color="textSecondary" component="p">
-    //                         Lizards are a widespread group of squamate reptiles, with over 6,000 species, ranging
-    //                         across all continents except Antarctica
-    //           </Typography>
-    //                 </CardContent>
-    //                 <CardMedia
-    //                     component="img"
-    //                     alt="Contemplative Reptile"
-    //                     height="140"
-    //                     image="/static/images/cards/contemplative-reptile.jpg"
-    //                     title="Contemplative Reptile"
-    //                 />
-    //             </CardActionArea>
-    //             <CardActions>
-    //                 <Button size="small" color="primary">
-    //                     Add
-    //         </Button>
-    //             </CardActions>
-    //         </Card>
-    //     );
     // }
 
     render() {

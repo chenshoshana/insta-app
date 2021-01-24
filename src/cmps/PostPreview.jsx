@@ -15,11 +15,12 @@ import ShareIcon from '@material-ui/icons/Share';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { CommentList } from './CommentList.jsx'
-import { UtilService } from '../service/utilService.js'
+import { utilService } from '../service/utilService.js'
 import { removePost } from '../store/action/postActions.js'
 import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux'
 import { RemovePostConfirm } from './RemovePostConfirm.jsx';
+import { PostActionsBtns } from './PostActionsBtns.jsx'
 
 
 class _PostPreview extends Component {
@@ -57,6 +58,7 @@ class _PostPreview extends Component {
 
     render() {
         const { post } = this.props
+        const clickedLike = this.state.isLiked
         return (
             <section>
                 <Card className={"root"}>
@@ -86,16 +88,19 @@ class _PostPreview extends Component {
                         image={post.title}
                         title="Paella dish"
                     />
-
+                    {/* {<PostActionsBtns post={post} clickedLike={clickedLike} toggleLiked={this.onToggleLiked} />} */}
                     <CardActions disableSpacing>
-                        {/* <IconButton aria-label="add to favorites"> */}
-                        <IconButton aria-label="add to favorites" onClick={this.onToggleLiked} className={this.state.isLiked ? "liked" : ''}>
+                    {/* <IconButton aria-label="add to favorites"> */}
+                     <IconButton aria-label="add to favorites" onClick={this.onToggleLiked} className={this.state.isLiked ? "liked" : ''}>
                             <FavoriteIcon />
                         </IconButton>
-                        <IconButton aria-label="share">
+                        {/* <i class="fi-rr-bookmark"></i> */} 
+                    {/* <IconButton aria-label="share">
                             <ShareIcon />
-                        </IconButton>
-                        {/* <IconButton
+                        </IconButton> */}
+                     </CardActions>
+                    <p>{post.likes.length} likes</p>
+                    {/* <IconButton
                         className={clsx(expand, {
                             [expandOpen]: expanded,
                         })}
@@ -105,7 +110,6 @@ class _PostPreview extends Component {
                         >
                         <ExpandMoreIcon />
                     </IconButton> */}
-                    </CardActions>
                     {/* <Collapse in={expanded} timeout="auto" unmountOnExit> */}
                     <CommentList comments={post.comments} />
                     {/* </Collapse> */}

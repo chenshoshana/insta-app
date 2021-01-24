@@ -1,4 +1,4 @@
-export const UtilService = {
+export const utilService = {
     makeId,
     getRandomInt,
     dateFormatter,

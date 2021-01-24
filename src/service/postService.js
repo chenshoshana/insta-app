@@ -43,19 +43,35 @@ function remove(postId) {
     } else return Promise.reject('No post')
 }
 
-function savePost(post) {
-    var gPosts = StorageService.load('posts')
+// function savePost(post) {
+//     var gPosts = StorageService.load('posts')
 
+//     if (post._id) {
+//         const idx = gPosts.findIndex(currPost => currPost._id === post._id)
+//         gPosts[idx] = post;
+//     } else {
+//         post._id = utilService.makeId()
+//         gPosts.unshift(post)
+//     }
+//     StorageService.save('posts', gPosts)
+//     // _saveEventisToFile(gPosts)
+//     return Promise.resolve(post)
+// }
+
+async function savePost(post) {
+    var res;
     if (post._id) {
-        const idx = gPosts.findIndex(currPost => currPost._id === post._id)
-        gPosts[idx] = post;
-    } else {
-        post._id = utilService.makeId()
-        gPosts.unshift(post)
+        
+        res = await axios.put(`${BASE_URL}/${post._id}`, post)
     }
-    StorageService.save('posts', gPosts)
-    // _saveEventisToFile(gPosts)
-    return Promise.resolve(post)
+    else {
+        
+        res = await axios.post(BASE_URL, post)
+    }
+    // if (!res?.data) return Promise.reject('Unauthorized activity')
+    // return res.data
+    console.log('res',res);
+    return res.data
 }
 
 function _savePostsToFile(gPosts) {

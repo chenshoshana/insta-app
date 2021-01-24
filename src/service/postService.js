@@ -71,6 +71,7 @@ async function savePost(post) {
     // if (!res?.data) return Promise.reject('Unauthorized activity')
     // return res.data
     console.log('res',res);
+    return res.data
 }
 
 function _savePostsToFile(gPosts) {

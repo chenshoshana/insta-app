@@ -71,7 +71,7 @@ async function savePost(post) {
     var res;
     if (post._id) {
         console.log('entrer if post._id');
-        res = await axios.put(`${BASE_URL}/${post._id}`, post)
+        res = await axios.put(`${BASE_URL}/${post._id}`, {post: post})
         console.log('exist post.id');
     }
     else {

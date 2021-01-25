@@ -21,17 +21,10 @@ export function loadPosts(filterBy) {
 // }
 
 export function removePost(postId) {
-<<<<<<< HEAD
-    return (dispatch) => {
-        console.log('postId', postId);
-        postService.remove(postId).then(() => { dispatch({ type: 'REMOVE_POST', postId }) })
-    }
-=======
   return (dispatch) => {
     console.log(dispatch);
     postService.remove(postId).then(() => { dispatch({ type: 'REMOVE_POST', postId: postId }) })
   }
->>>>>>> 13e0ee12117974c25bc303d381d1aaad50a10137
 }
 // export function removePost(postId) {
 //     return (dispatch) => {

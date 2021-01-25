@@ -109,6 +109,7 @@ export class _PostActionsBtns extends Component {
 
     render() {
         const { post } = this.props
+        console.log('post.likes.length', post.likes.length);
         return (
             <div className="act-btn-container">
                 <CardActions disableSpacing>

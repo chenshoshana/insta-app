@@ -22,6 +22,7 @@ import { connect } from 'react-redux'
 import { RemovePostConfirm } from './RemovePostConfirm.jsx';
 import { PostActionsBtns } from './PostActionsBtns.jsx'
 import { AddComment } from './AddComment.jsx';
+import { addComment } from '../store/action/commentActions.js'
 
 
 class _PostPreview extends Component {
@@ -47,10 +48,22 @@ class _PostPreview extends Component {
     //         })
     //     }
 
-    // state = {
-    //     isLiked: false
-    // }
-
+    state = {
+        isLiked: false,
+        isRemoved: false
+    }
+    onAddComment = async (comment) => {
+        // await addComment(comment, this.props.post)
+        // console.log('succscsder');
+        
+        // Solution:
+        // you take the post object,
+        const { post } = this.prop
+        const postCopy = JSON.parse(JSON.stringify(post))
+        postCopy.comments.push(comment)
+        // Call for action to add editPost(postCopy)
+        
+    }
     onToggleLiked = () => {
         // console.log('onToggleLiked');
         // console.log('this.props.loggedinUser:', this.props.loggedinUser);
@@ -77,12 +90,12 @@ class _PostPreview extends Component {
                             </Avatar>
                         }
                         action={
-                            <IconButton aria-label="settings" onClick={this.props.toggleRemovePost}>
+                            // <IconButton aria-label="settings" onClick={this.props.toggleRemovePost}>
+                            //     <MoreVertIcon />
+                            // </IconButton>
+                            <IconButton aria-label="settings" onClick={() => this.props.removePost(post._id)}>
                                 <MoreVertIcon />
                             </IconButton>
-                            // <IconButton aria-label="settings" onClick={() => this.props.removePost(post._id)}>
-                            // <MoreVertIcon />
-                            // </IconButton>
                         }
                         title={post.user.username}
                         subheader={post.title}
@@ -122,7 +135,7 @@ class _PostPreview extends Component {
                     </IconButton> */}
                     {/* <Collapse in={expanded} timeout="auto" unmountOnExit> */}
                     <CommentList comments={post.comments} />
-                    <AddComment />
+                    <AddComment addComment={this.onAddComment} />
                     {/* <section>
                             <Avatar aria-label="recipe" className={"avatar"}>
                                 <img src={post.user.imgUrl} />
@@ -152,7 +165,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
     removePost,
-    editPost
+    addComment
 }
 
 

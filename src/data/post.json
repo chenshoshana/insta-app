@@ -1,9 +1,8 @@
 [
     {
-        "_id": "p101",
         "imgUrl": "https://image.shutterstock.com/image-photo/portrait-smiling-red-haired-millennial-260nw-1194497251.jpg",
         "title": "new pic of me!",
-        "createdAt": 1611054570343,
+        "createdAt": 1611054570343.0,
         "user": {
             "_id": "sadad748",
             "username": "chen_shoshana",
@@ -13,7 +12,7 @@
             {
                 "_id": "dsfda3243",
                 "txt": "dude you look great!",
-                "createdAt": 1611098290343,
+                "createdAt": 1611098290343.0,
                 "byUser": {
                     "id": "u1022",
                     "username": "barak_obama",
@@ -41,7 +40,7 @@
             {
                 "_id": "dsasd243",
                 "txt": "dude herzeta retzah!",
-                "createdAt": 1611058570343,
+                "createdAt": 1611058570343.0,
                 "likes": [
                     {
                         "id": "makeId",
@@ -71,10 +70,9 @@
         ]
     },
     {
-        "_id": "p102",
         "imgUrl": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjjIccOuJ0PPfCCzZIu214oW46DlHUexKHLA&usqp=CAU",
         "title": "The amazing power of sabih!",
-        "createdAt": 1611044570343,
+        "createdAt": 1611044570343.0,
         "user": {
             "_id": "sadad749",
             "username": "bino_bepita",
@@ -94,7 +92,7 @@
             {
                 "_id": "dsfda3243",
                 "txt": "מה שאתה עושה לי..",
-                "createdAt": 1611048570343,
+                "createdAt": 1611048570343.0,
                 "byUser": {
                     "id": "u1022",
                     "username": "golda_meir",
@@ -114,7 +112,7 @@
             {
                 "_id": "dsasd243",
                 "txt": "פעם היו מכינים את זה  אחרת",
-                "createdAt": 1611038570343,
+                "createdAt": 1611038570343.0,
                 "byUser": {
                     "id": "u103",
                     "username": "binyamin_zeev_hertzel",
@@ -134,7 +132,6 @@
         ]
     },
     {
-        "_id": "p103",
         "imgUrl": "https://www.andrerieu.com/site/assets/files/3504/36809896_10156629352332425_9093825910422896640_o.1280x1280.jpg",
         "title": "concerts are great!!",
         "createdAt": 1602038570343,
@@ -197,7 +194,6 @@
         ]
     },
     {
-        "_id": "p104",
         "imgUrl": "https://besttv232-ynet-images1-prod.cdn.it.best-tv.com/PicServer5/2017/08/29/7999138/7999115010001009801066no.jpg",
         "title": "my bff!",
         "createdAt": 1519225809934,

@@ -3,7 +3,7 @@ import { postService } from "../../service/postService.js"
 
 export function loadPosts(filterBy) {
     return (dispatch) => {
-        console.log(dispatch);
+        console.log('filterBy', filterBy);
         postService.query(filterBy).then(posts => { dispatch({ type: 'SET_POSTS', posts: posts }) })
         
     }
@@ -22,8 +22,8 @@ export function loadPosts(filterBy) {
 
 export function removePost(postId) {
     return (dispatch) => {
-        console.log(dispatch);
-        postService.remove(postId).then(() => { dispatch({ type: 'REMOVE_POST', postId: postId }) })
+        console.log('postId', postId);
+        postService.remove(postId).then(() => { dispatch({ type: 'REMOVE_POST', postId }) })
     }
 }
 // export function removePost(postId) {

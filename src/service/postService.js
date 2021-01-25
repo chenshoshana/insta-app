@@ -32,15 +32,21 @@ function getById(postId) {
     else return Promise.reject('No post')
 }
 
-function remove(postId) {
-    var posts = gPosts
-    const idx = posts.findIndex(post => post._id === postId)
+// function remove(postId) {
+//     var posts = gPosts
+//     const idx = posts.findIndex(post => post._id === postId)
 
-    if (idx >= 0) {
-        posts.splice(idx, 1)
-        StorageService.save('posts', posts)
-        return Promise.resolve()
-    } else return Promise.reject('No post')
+//     if (idx >= 0) {
+//         posts.splice(idx, 1)
+//         StorageService.save('posts', posts)
+//         return Promise.resolve()
+//     } else return Promise.reject('No post')
+// }
+
+async function remove(postId) {
+    const res = await axios.delete(`${BASE_URL}/${postId}`),
+        { data } = res
+    return data
 }
 
 // function savePost(post) {

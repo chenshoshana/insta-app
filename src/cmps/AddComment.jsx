@@ -1,5 +1,4 @@
 import { React, Component } from 'react'
-import { addComment } from '../store/action/commentActions.js'
 import { connect } from 'react-redux'
 import Avatar from '@material-ui/core/Avatar';
 
@@ -23,7 +22,7 @@ class _AddComment extends Component {
         const savedComment = this.state.comment
         // console.log('txt',this.state.comment.txt);
         if (!this.state.comment.txt) return alert('Can not upload empty comment')
-        await addComment(savedComment)
+        this.props.addComment(savedComment)
         this.setState({ savedComment: { txt: '' } })
         // this.props.addCommentFalse()
     }
@@ -62,7 +61,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-    addComment
+    
 }
 
 export const AddComment = connect(mapStateToProps, mapDispatchToProps)(_AddComment)

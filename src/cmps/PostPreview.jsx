@@ -74,7 +74,7 @@ class _PostPreview extends Component {
         const idx = postCopy.likes.findIndex(like => like.byUser._id === loggedinUser._id)
         if (idx === -1) postCopy.likes.push({ id: utilService.makeId(), byUser: { ...loggedinUser } })
         else postCopy.likes = postCopy.likes.filter(like => like.byUser._id !== loggedinUser._id)//loggedinUser. was added after error
-        this.props.editPost(postCopy) //Next: Action > Service (+to backend) > Action > Dispatch (reducer)
+        editPost(postCopy) //Next: Action > Service (+to backend) > Action > Dispatch (reducer)
     }
 
     render() {

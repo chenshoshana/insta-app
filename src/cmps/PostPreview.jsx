@@ -16,7 +16,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import MoreVertIcon from '@material-ui/icons/MoreVert';
 import { CommentList } from './CommentList.jsx'
 import { utilService } from '../service/utilService.js'
-import { removePost } from '../store/action/postActions.js'
+import { removePost, editPost } from '../store/action/postActions.js'
 import Button from '@material-ui/core/Button';
 import { connect } from 'react-redux'
 import { RemovePostConfirm } from './RemovePostConfirm.jsx';
@@ -65,14 +65,21 @@ class _PostPreview extends Component {
         
     }
     onToggleLiked = () => {
-        console.log('onToggleLiked');
-        if (this.state.isLiked) this.setState({ isLiked: false })
-        else this.setState({ isLiked: true })
+        // console.log('onToggleLiked');
+        // console.log('this.props.loggedinUser:', this.props.loggedinUser);
+        // console.log('this.props.post', this.props.post);
+        const { loggedinUser, post } = this.props
+        const postCopy = { ...post } // might change to JSON-parse+stringify
+
+        const idx = postCopy.likes.findIndex(like => like.byUser._id === loggedinUser._id)
+        if (idx === -1) postCopy.likes.push({ id: utilService.makeId(), byUser: { ...loggedinUser } })
+        else postCopy.likes = postCopy.likes.filter(like => like.byUser._id !== loggedinUser._id)//loggedinUser. was added after error
+        this.props.editPost(postCopy) //Next: Action > Service (+to backend) > Action > Dispatch (reducer)
     }
 
     render() {
         const { post } = this.props
-        const clickedLike = this.state.isLiked
+        // const clickedLike = this.state.isLiked
         return (
             <section>
                 <Card className={"root"}>
@@ -102,20 +109,20 @@ class _PostPreview extends Component {
                         image={post.title}
                         title="Paella dish"
                     />
-                    {/* {<PostActionsBtns post={post} clickedLike={clickedLike} toggleLiked={this.onToggleLiked} />} */}
-                    <div className="post-actions-btns">
-                        <CardActions disableSpacing>
-                            {/* <IconButton aria-label="add to favorites"> */}
-                            <IconButton aria-label="add to favorites" onClick={this.onToggleLiked} className={this.state.isLiked ? "liked" : ''}>
+                    {<PostActionsBtns post={post} toggleLiked={this.onToggleLiked} />}{/*//clickedLike={clickedLike}*/}
+                    {/* <div className="post-actions-btns">
+                        <CardActions disableSpacing> */}
+                    {/* <IconButton aria-label="add to favorites"> */}
+                    {/* <IconButton aria-label="add to favorites" onClick={this.onToggleLiked} className={this.state.isLiked ? "liked" : ''}>
                                 <FavoriteIcon />
-                            </IconButton>
-                            {/* <i class="fi-rr-bookmark"></i> */}
-                            {/* <IconButton aria-label="share">
+                            </IconButton> */}
+                    {/* <i class="fi-rr-bookmark"></i> */}
+                    {/* <IconButton aria-label="share">
                             <ShareIcon />
                         </IconButton> */}
-                        </CardActions>
-                        <p>{post.likes.length} likes</p>
-                    </div>
+                    {/* </CardActions> */}
+                    {/* <p>{post.likes.length} likes</p> */}
+                    {/* </div> */}
                     {/* <IconButton
                         className={clsx(expand, {
                             [expandOpen]: expanded,
@@ -151,7 +158,8 @@ class _PostPreview extends Component {
 }
 const mapStateToProps = state => {
     return {
-        posts: state.postModule.posts
+        posts: state.postModule.posts,
+        loggedinUser: state.postModule.loggedinUser
     }
 }
 

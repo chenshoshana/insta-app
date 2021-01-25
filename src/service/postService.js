@@ -67,11 +67,9 @@ async function remove(postId) {
 async function savePost(post) {
     var res;
     if (post._id) {
-        
         res = await axios.put(`${BASE_URL}/${post._id}`, post)
     }
     else {
-        
         res = await axios.post(BASE_URL, post)
     }
     // if (!res?.data) return Promise.reject('Unauthorized activity')

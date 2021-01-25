@@ -1,6 +1,8 @@
 import { StorageService } from './storageService.js';
 import { utilService } from './utilService.js';
 import Axios from 'axios';
+import { httpService } from './httpService.js'
+
 const axios = Axios.create({
     withCredentials: true
 })
@@ -65,18 +67,33 @@ async function remove(postId) {
 // }
 
 async function savePost(post) {
+    console.log('enter savePost', post._id);
     var res;
     if (post._id) {
-        res = await axios.put(`${BASE_URL}/${post._id}`, post)
+        console.log('entrer if post._id');
+        res = await axios.put(`${BASE_URL}/${post._id}`, {post: post})
+        console.log('exist post.id');
     }
     else {
         res = await axios.post(BASE_URL, post)
+        console.log('else');
     }
     // if (!res?.data) return Promise.reject('Unauthorized activity')
     // return res.data
     console.log('res',res);
     return res.data
 }
+
+// async function savePost(post) {
+//     console.log('enter savePost', post);
+//     const currPost = await httpService.post(`post`, post)
+
+//     // review.byUser = userService.getLoggedinUser()
+//     // review.aboutUser = await userService.getById(review.aboutUserId)
+//     // const addedReview = storageService.post('review', review)
+
+//     return currPost
+// }
 
 function _savePostsToFile(gPosts) {
     fs.writeFileSync('data/post.json', JSON.stringify(gPosts, null, 2))

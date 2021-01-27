@@ -67,6 +67,7 @@ async function remove(postId) {
 // }
 
 async function savePost(post) {
+    console.log('POST SERVICE FRONT')
     console.log('enter savePost', post._id);
     var res;
     if (post._id) {

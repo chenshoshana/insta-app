@@ -27,8 +27,6 @@ import { addComment } from '../store/action/commentActions.js'
 
 class _PostPreview extends Component {
 
-
-
     // var total = {
     //     likes: [],
     //     comments: []
@@ -52,29 +50,27 @@ class _PostPreview extends Component {
         isLiked: false,
         isRemoved: false
     }
+
+    
     onAddComment = async (comment) => {
         // await addComment(comment, this.props.post)
         // console.log('succscsder');
-        
+
         // Solution:
         // you take the post object,
         const { post } = this.prop
         const postCopy = JSON.parse(JSON.stringify(post))
         postCopy.comments.push(comment)
         // Call for action to add editPost(postCopy)
-        
+
     }
     onToggleLiked = () => {
-        // console.log('onToggleLiked');
-        // console.log('this.props.loggedinUser:', this.props.loggedinUser);
-        // console.log('this.props.post', this.props.post);
         const { loggedinUser, post } = this.props
         const postCopy = { ...post } // might change to JSON-parse+stringify
-
         const idx = postCopy.likes.findIndex(like => like.byUser._id === loggedinUser._id)
         if (idx === -1) postCopy.likes.push({ id: utilService.makeId(), byUser: { ...loggedinUser } })
-        else postCopy.likes = postCopy.likes.filter(like => like.byUser._id !== loggedinUser._id)//loggedinUser. was added after error
-        editPost(postCopy) //Next: Action > Service (+to backend) > Action > Dispatch (reducer)
+        else postCopy.likes = postCopy.likes.filter(like => like.byUser._id !== loggedinUser._id)
+        this.props.editPost(postCopy) //Next: Action > Service (+to backend) > Action > Dispatch (reducer)
     }
 
     render() {
@@ -116,7 +112,6 @@ class _PostPreview extends Component {
                     {/* <IconButton aria-label="add to favorites" onClick={this.onToggleLiked} className={this.state.isLiked ? "liked" : ''}>
                                 <FavoriteIcon />
                             </IconButton> */}
-                    {/* <i class="fi-rr-bookmark"></i> */}
                     {/* <IconButton aria-label="share">
                             <ShareIcon />
                         </IconButton> */}
@@ -165,6 +160,7 @@ const mapStateToProps = state => {
 
 const mapDispatchToProps = {
     removePost,
+    editPost,
     addComment
 }
 

@@ -44,7 +44,6 @@ export function editPost(post) {
     postService.savePost(post)
       .then(() => { dispatch({ type: 'EDIT_POST', post }) })
       .catch(err => {
-        alert('OOPs, try again');
         console.log('ERR:', err);
       })
   }

@@ -21,7 +21,8 @@ export function postReducer(state = initialState, action) {
                 if (post._id === action.post._id) {
                     return action.post;
                 }
-                return post;
+                state = {...state, posts: editedevPosts}
+                return state;
 
             })
             // , inStock: '', minPrice: 0, maxPrice: 1000 }

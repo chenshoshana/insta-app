@@ -34,37 +34,11 @@ function getById(postId) {
     else return Promise.reject('No post')
 }
 
-// function remove(postId) {
-//     var posts = gPosts
-//     const idx = posts.findIndex(post => post._id === postId)
-
-//     if (idx >= 0) {
-//         posts.splice(idx, 1)
-//         StorageService.save('posts', posts)
-//         return Promise.resolve()
-//     } else return Promise.reject('No post')
-// }
-
 async function remove(postId) {
     const res = await axios.delete(`${BASE_URL}/${postId}`),
         { data } = res
     return data
 }
-
-// function savePost(post) {
-//     var gPosts = StorageService.load('posts')
-
-//     if (post._id) {
-//         const idx = gPosts.findIndex(currPost => currPost._id === post._id)
-//         gPosts[idx] = post;
-//     } else {
-//         post._id = utilService.makeId()
-//         gPosts.unshift(post)
-//     }
-//     StorageService.save('posts', gPosts)
-//     // _saveEventisToFile(gPosts)
-//     return Promise.resolve(post)
-// }
 
 async function savePost(post) {
     console.log('enter savePost', post._id);
@@ -78,22 +52,9 @@ async function savePost(post) {
         res = await axios.post(BASE_URL, post)
         console.log('else');
     }
-    // if (!res?.data) return Promise.reject('Unauthorized activity')
-    // return res.data
     console.log('res',res);
     return res.data
 }
-
-// async function savePost(post) {
-//     console.log('enter savePost', post);
-//     const currPost = await httpService.post(`post`, post)
-
-//     // review.byUser = userService.getLoggedinUser()
-//     // review.aboutUser = await userService.getById(review.aboutUserId)
-//     // const addedReview = storageService.post('review', review)
-
-//     return currPost
-// }
 
 function _savePostsToFile(gPosts) {
     fs.writeFileSync('data/post.json', JSON.stringify(gPosts, null, 2))

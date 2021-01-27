@@ -1,5 +1,7 @@
 import { React, Component } from 'react'
 import { connect } from 'react-redux'
+import { addComment } from '../store/action/commentActions.js'
+
 import Avatar from '@material-ui/core/Avatar';
 
 class _AddComment extends Component {
@@ -20,15 +22,12 @@ class _AddComment extends Component {
     onSaveComment = async ev => {
         ev.preventDefault()
         const savedComment = this.state.comment
-        // console.log('txt',this.state.comment.txt);
         if (!this.state.comment.txt) return alert('Can not upload empty comment')
-        this.props.addComment(savedComment)
+        addComment(savedComment)
         this.setState({ savedComment: { txt: '' } })
-        // this.props.addCommentFalse()
     }
 
-    onInputChange = (ev) => {//on input change
-        // console.log('ev.target.value:', ev.target.value);
+    onInputChange = (ev) => {
         const comment = { ...this.state.comment };
         comment.txt = ev.target.value;
         console.log(comment.txt);
@@ -42,11 +41,9 @@ class _AddComment extends Component {
     render() {
         return (
             <section className="comment-area">
-                <form>
+                <form onSubmit={this.onSaveComment}>
                     <input type="txt" placeholder="Add a comment..." name="comment" className="add-comment-textarea" onChange={this.onInputChange} />
-                    {/* <textarea rows="1" placeholder="Add a comment..." name="comment" className="add-comment-textarea" onChange={this.onInputChange}></textarea> */}
-                    <button className="add-comment-btn" onClick={this.onSaveComment}>Post</button >
-                    {/* <input type="txt" placeholder="add comment"  onChange={this.onInputChange} /> */}
+                    <button className="add-comment-btn">Post</button >
                 </form>
 
             </section>
@@ -62,7 +59,7 @@ const mapStateToProps = state => {
 }
 
 const mapDispatchToProps = {
-    
+   
 }
 
 export const AddComment = connect(mapStateToProps, mapDispatchToProps)(_AddComment)

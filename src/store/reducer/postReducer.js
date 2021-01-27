@@ -4,7 +4,6 @@ let localLoggedinUser = {
     "username": "abraham_lincoln",
     "imgUrl": "https://www.goodesign.co.il/wp-content/uploads/2017/03/HIPSTORY-Shimoni-Lincoln.jpg"
 }
-// if (sessionStorage.loggedinUser) localLoggedinUser = JSON.parse(sessionStorage.loggedinUser)
 
 const initialState = {
     posts: posts,
@@ -25,7 +24,6 @@ export function postReducer(state = initialState, action) {
                 return state;
 
             })
-            // , inStock: '', minPrice: 0, maxPrice: 1000 }
             return { ...state, posts: editedevPosts }
         case 'ADD_POST':
 

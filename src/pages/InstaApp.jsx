@@ -38,27 +38,6 @@ class _InstaApp extends Component {
         this.props.loadPosts(this.props.filterBy)
 
     }
-    // onRemovePost = (postId) => {
-    //     console.log(this.state.post);
-    //     this.props.removePost(postId)
-    //     this.props.printMsg('Post was removed')
-    //     setTimeout(() => {
-    //         this.props.printMsg('')
-    //     }, 2000)
-    //     this.props.history.push('/post')
-
-
-
-    // onSetFilter = (filterBy) => {
-    //     this.props.setFilter(filterBy)
-    //     this.props.loadEventis(filterBy)
-
-    // }
-
-    // doLogout = async () => {
-    //     await this.props.logout()
-    //     this.setState({ loggedInUser: null }, () => this.props.history.push('/'))
-    // }
 
     render() {
         const { posts } = this.props
@@ -88,7 +67,5 @@ const mapDispatchToProps = {
     loadPosts,
     removePost
 }
-
-
 
 export const InstaApp = connect(mapStateToProps, mapDispatchToProps)(_InstaApp);

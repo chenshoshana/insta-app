@@ -24,33 +24,7 @@ import { PostActionsBtns } from './PostActionsBtns.jsx'
 import { AddComment } from './AddComment.jsx';
 import { addComment } from '../store/action/commentActions.js'
 
-
 class _PostPreview extends Component {
-
-    // var total = {
-    //     likes: [],
-    //     comments: []
-    // }
-    // if (!total.comments || !total.comments.length) {
-    //     total.comments = []
-
-    // } else if (!total.likes || !total.likes.length) {
-    //     total.likes = []
-    // } else {
-    //     total.comments = comments
-    //     total.likes = likes
-    //     const commentsCount = comments.forEach(comment => {
-    //         total.comments += comment;
-    //         const likeRating = comments.forEach(comment => {
-    //             total.comments += comment.rate;
-    //         })
-    //     }
-
-    state = {
-        isLiked: false,
-        isRemoved: false
-    }
-
     
     onAddComment = async (comment) => {
         // await addComment(comment, this.props.post)
@@ -75,7 +49,6 @@ class _PostPreview extends Component {
 
     render() {
         const { post } = this.props
-        // const clickedLike = this.state.isLiked
         return (
             <section>
                 <Card className={"root"}>
@@ -86,9 +59,6 @@ class _PostPreview extends Component {
                             </Avatar>
                         }
                         action={
-                            // <IconButton aria-label="settings" onClick={this.props.toggleRemovePost}>
-                            //     <MoreVertIcon />
-                            // </IconButton>
                             <IconButton aria-label="settings" onClick={() => this.props.removePost(post._id)}>
                                 <MoreVertIcon />
                             </IconButton>
@@ -105,48 +75,10 @@ class _PostPreview extends Component {
                         image={post.title}
                         title="Paella dish"
                     />
-                    {<PostActionsBtns post={post} toggleLiked={this.onToggleLiked} />}{/*//clickedLike={clickedLike}*/}
-                    {/* <div className="post-actions-btns">
-                        <CardActions disableSpacing> */}
-                    {/* <IconButton aria-label="add to favorites"> */}
-                    {/* <IconButton aria-label="add to favorites" onClick={this.onToggleLiked} className={this.state.isLiked ? "liked" : ''}>
-                                <FavoriteIcon />
-                            </IconButton> */}
-                    {/* <IconButton aria-label="share">
-                            <ShareIcon />
-                        </IconButton> */}
-                    {/* </CardActions> */}
-                    {/* <p>{post.likes.length} likes</p> */}
-                    {/* </div> */}
-                    {/* <IconButton
-                        className={clsx(expand, {
-                            [expandOpen]: expanded,
-                        })}
-                        onClick={handleExpandClick}
-                        aria-expanded={expanded}
-                        aria-label="show more"
-                        >
-                        <ExpandMoreIcon />
-                    </IconButton> */}
-                    {/* <Collapse in={expanded} timeout="auto" unmountOnExit> */}
+                    {<PostActionsBtns post={post} toggleLiked={this.onToggleLiked} />}
                     <CommentList comments={post.comments} />
                     <AddComment addComment={this.onAddComment} />
-                    {/* <section>
-                            <Avatar aria-label="recipe" className={"avatar"}>
-                                <img src={post.user.imgUrl} />
-                            </Avatar>
-                        
-                        <form>
-                            <input type="txt" placeholder="add comment" />
-                            <button>add</button>
-                        </form>
-
-                    </section> */}
-                    {/* </Collapse> */}
-                    {/* <Button>add comment</Button> */}
-
                 </Card>
-                {/* { this.state.isRemovePost && <RemovePostConfirm toggleRemovePost={this.onToggleRemovePost} />} */}
             </section>
         )
     }
@@ -157,15 +89,11 @@ const mapStateToProps = state => {
         loggedinUser: state.postModule.loggedinUser
     }
 }
-
 const mapDispatchToProps = {
     removePost,
     editPost,
     addComment
 }
-
-
-
 export const PostPreview = connect(mapStateToProps, mapDispatchToProps)(_PostPreview);
 
 
